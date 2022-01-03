@@ -87,13 +87,16 @@ namespace wet2_dast {
 
         T* find_object(int key);//returns nullptr 1 if it didn't found anything,else returns the object itself.
         ~HashTable();
+        class exceptions : public std::exception
+        {
+        };
     };
 
 
     template<class T>
     HashTable<T>::HashTable(int size):size(size) {
         if (size < 0) {
-            throw std::exception();
+            throw exceptions();
         } else {
             prime_hash_encoder = closest_prime_to_size(size);
             size = prime_hash_encoder;
@@ -225,7 +228,7 @@ namespace wet2_dast {
         assert(object!=nullptr&&key>=0);
         int hashed_key = (find_object_aux(false, key));//query existence
         if (hashed_key != NOT_FOUND) {
-            throw std::exception();
+            throw exceptions();
         }
         //next , we want to find an index that can be inserted (meaning :nullptr or can be inserted)
         hashed_key = find_object_aux(true, key);//query if we can find place for ihm.

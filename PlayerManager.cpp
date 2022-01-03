@@ -57,9 +57,9 @@ namespace wet2_dast{
             Group* group = groups->find(0);
             group->AddPlayer(*player);
         }
-        catch (std::exception& e)
+        catch (HashTable<Player>::exceptions& e)
         {
-            return FAILURE; //if the player is exists before this function, need to replace exception, TODO
+            return FAILURE;
         }
         catch (std::exception& e)
         {
