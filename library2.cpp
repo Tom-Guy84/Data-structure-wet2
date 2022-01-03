@@ -1,50 +1,61 @@
 
 #include "PlayerManager.h"
 #include "library2.h"
-using namespace wet2_dast;
+namespace wet2_dast {
 
     void *Init(int k, int scale) {
-        PlayerManager *DS = new PlayerManager();
+
+        PlayerManager *DS;
+        DS->PlayerManagerInit(k, scale);
         if (!DS) {
-            return NULL ;
+            return NULL;
         }
         return (void *) DS;
     }
 
     StatusType MergeGroups(void *DS, int GroupID1, int GroupID2) {
-        return FAILURE;
+        auto *DS_OK = (PlayerManager *) DS;
+        return DS_OK->mergeGroups(GroupID1, GroupID2);
+
     }
 
     StatusType AddPlayer(void *DS, int PlayerID, int GroupID, int score) {
-        return FAILURE;
+        auto *DS_OK = (PlayerManager *) DS;
+        return DS_OK->addPlayer(PlayerID, GroupID, score);
     }
 
     StatusType RemovePlayer(void *DS, int PlayerID) {
-        return FAILURE;
+        auto *DS_OK = (PlayerManager *) DS;
+        return DS_OK->removePlayer(PlayerID);
     }
 
     StatusType IncreasePlayerIDLevel(void *DS, int PlayerID, int LevelIncrease) {
-        return FAILURE;
+        auto *DS_OK = (PlayerManager *) DS;
+        return DS_OK->increasePlayerIDLevel(PlayerID, LevelIncrease);
     }
 
     StatusType ChangePlayerIDScore(void *DS, int PlayerID, int NewScore) {
-        return FAILURE;
+        auto *DS_OK = (PlayerManager *) DS;
+        return DS_OK->changePlayerIDScore(PlayerID, NewScore);
     }
 
     StatusType GetPercentOfPlayersWithScoreInBounds(void *DS, int GroupID, int score, int lowerLevel, int higherLevel,
                                                     double *players) {
-        return FAILURE;
+        auto *DS_OK = (PlayerManager *) DS;
+        return DS_OK->getPercentOfPlayersWithScoreInBounds(GroupID, score, lowerLevel, higherLevel, players);
     }
 
     StatusType AverageHighestPlayerLevelByGroup(void *DS, int GroupID, int m, double *level) {
-        return FAILURE;
+        auto *DS_OK = (PlayerManager *) DS;
+        return DS_OK->averageHighestPlayerLevelByGroup(GroupID, m, level);
     }
 
     StatusType
     GetPlayersBound(void *DS, int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers) {
-        return FAILURE;
+        auto *DS_OK = (PlayerManager *) DS;
+        return DS_OK->getPlayersBound(GroupID, score, m, LowerBoundPlayers, HigherBoundPlayers);
     }
-
     void Quit(void **DS) {
 
     }
+}

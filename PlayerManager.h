@@ -20,7 +20,8 @@ namespace wet2_dast {
         Union_Find<Group>* groups;
         PlayerManager(int k, int scale);
     public:
-        PlayerManager* Init(int k, int scale);
+        PlayerManager *PlayerManagerInit(int k, int scale);
+
         StatusType mergeGroups(int GroupID1, int GroupID2);
         StatusType addPlayer(int PlayerID, int GroupID, int score);
         StatusType removePlayer(int PlayerID);
