@@ -8,7 +8,7 @@ namespace wet2_dast {
         return (this->Group_Id == group.Group_Id);
     }
 
-    void Union(Group* to_delete,Group *to_insert) //to_delete is deleted
+    void merge(Group* to_delete,Group *to_insert) //to_delete is deleted
     {
         if (to_delete->size == 0)
             return;

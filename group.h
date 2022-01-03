@@ -27,7 +27,7 @@ namespace wet2_dast {
         bool operator==(const Group &group) const;
         int GetSize() const;
         bool operator<=(const Group& other) const;
-        friend void Union(Group* to_delete,Group *to_insert);
+        friend void merge(Group* to_delete,Group *to_insert);
         void AddPlayer(Player& player);
         Player* findPlayer(int PlayerId);
         void removePlayer(int player_id);

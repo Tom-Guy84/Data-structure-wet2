@@ -22,8 +22,8 @@
 \use_non_tex_fonts true
 \font_sc false
 \font_osf false
-\font_sf_scale 100 110
-\font_tt_scale 100 110
+\font_sf_scale 100 150
+\font_tt_scale 100 150
 \use_microtype false
 \use_dash_ligatures true
 \graphics default
@@ -31,7 +31,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize default
+\paperfontsize 12
 \spacing onehalf
 \use_hyperref false
 \papersize default
@@ -105,12 +105,70 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \end_layout
 
 \begin_layout Standard
-ראשית נתאר את מבנה הנתונים בו נשתמש בפתרון התרגיל: מבנה הנתונים יכיל קבוצה
- של כל השחקנים ומבנה 
+ראשית נתאר את מבנה הנתונים בו נשתמש בפתרון התרגיל: מבנה הנתונים מבנה 
 \begin_inset Formula $Union-Find$
 \end_inset
 
- של קבוצות.
+ של קבוצות כך שהקבוצה באינקס
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+במבנה תהיה קבוצת כל השחקנים.
+ עליה לא נפעיל את פעולת 
+\begin_inset Formula $mergeGroups$
+\end_inset
+
+ ולכן היא תמיד תהיה נפרדת משאר הקבוצות.
 \end_layout
 
 \begin_layout Standard
@@ -446,7 +504,15 @@ addPlayer
 \begin_inset Formula $Union-Find$
 \end_inset
 
- ריק בגדול k ל-k הקבוצות.
+ ריק בגדול 
+\begin_inset Formula $k+1$
+\end_inset
+
+ ל-
+\begin_inset Formula $k+1$
+\end_inset
+
+ הקבוצות.
  סיבוכיות הזמן של הפעולה היא 
 \begin_inset Formula $O(k)$
 \end_inset
@@ -957,47 +1023,23 @@ addPlayer
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\boldsymbol{players)}$
+\begin_inset Formula $\boldsymbol{\,higherLevel,\,players)}$
 \end_inset
 
- 
-\begin_inset Formula $\boldsymbol{higherLevel,}$
-\end_inset
 
- 
-\begin_inset Formula $\boldsymbol{loweLevel,}$
-\end_inset
-
- 
-\begin_inset Formula $\boldsymbol{socre,}$
-\end_inset
-
- 
-\begin_inset Formula $\boldsymbol{GroupID,}$
-\end_inset
-
- 
-\begin_inset Formula $\boldsymbol{DS,}$
-\end_inset
-
- 
-\begin_inset Formula $\boldsymbol{getPercentOFPlayersWithScoreInBounds(}$
-\end_inset
-
- 
-\begin_inset Formula $\boldsymbol{StatusType}$
+\begin_inset Formula $\boldsymbol{StatusType\,getPercentOfPlayersWithScoreInBounds(DS,\,GroupId,\,score,\,lowerLevel}$
 \end_inset
 
 
 \series bold
-: 
+:
 \series default
-הפעולה תעבור על העץ הממויין תחילה לפי תוצאה, תמצא כמה שחקנים יש בתוצאה המבוקשת
- כאשר רמתם היא בין שני החסמים )תעשה זאת בכך שתחפש את השחקן שתוצאתו היא המבוקשת
- ורמתו הכי קרובה מלמעלה לחסם התחתון, ואת השחקן שתוצאתו היא המבוקשת ורמתו
- הכי קרובה מלמטה לחסם העליון( כאשר את כמות השחקנים היא תחשב לפי דרגות הצמתים,
- תעשה אותה הפעולה בעץ הממויין רק לפי הרמה והמספר המזהה בו תקבל את כמות השחקנים
- הכוללת של השחקנים בין רמות אלה ותחזיר את היחס בין שתי הקבוצות.
+ הפעולה תעבור על העץ הממויין תחילה לפי תוצאה, תמצא כמה שחקנים יש בתוצאה
+ המבוקשת כאשר רמתם היא בין שני החסמים )תעשה זאת בכך שתחפש את השחקן שתוצאתו
+ היא המבוקשת ורמתו הכי קרובה מלמעלה לחסם התחתון, ואת השחקן שתוצאתו היא המבוקשת
+ ורמתו הכי קרובה מלמטה לחסם העליון( כאשר את כמות השחקנים היא תחשב לפי דרגות
+ הצמתים, תעשה אותה הפעולה בעץ הממויין רק לפי הרמה והמספר המזהה בו תקבל את
+ כמות השחקנים הכוללת של השחקנים בין רמות אלה ותחזיר את היחס בין שתי הקבוצות.
  סיבוכיות הזמן הכוללת מתבטאת בחיפוש הקבוצה הרלוונטית ובה חיפוש של ארבעה
  איברים שונים בעצים וחישוב אמפירי ולכן בסה
 \begin_inset Quotes erd

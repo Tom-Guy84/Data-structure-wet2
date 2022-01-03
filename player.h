@@ -17,7 +17,7 @@ namespace wet2_dast {
         bool sort_by_score;
         int score;
     public:
-        Player(int player_id, int level, int group, bool sort_by_level, int score);//
+        Player(int player_id, int level, int group, bool sort_by_score, int score);//
         ~Player() = default;
         Player()=default;
         Player(const Player &p) = default;

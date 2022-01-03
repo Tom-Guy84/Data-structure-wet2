@@ -70,13 +70,13 @@ void Union_Find<T>::Union(int item_1, int item_2)
     Node* item_2_location = find_aux(item_2);
     if(item_1_location->size_of_group <= item_2_location->size_of_group)
     {
-        item_2_location->object->Union(item_1_location->object); //Union is T method
+        merge(item_1_location->object, item_2_location->object); //merge is T method
         item_1_location->father = item_2_location;
         item_2_location->size_of_group += item_1_location->size_of_group;
     }
     else
     {
-        item_1_location->object->Union(item_2_location->object);
+        merge(item_2_location->object, item_1_location->object);
         item_2_location->father = item_1_location;
         item_1_location->size_of_group += item_2_location->size_of_group;
     }
