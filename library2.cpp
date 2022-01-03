@@ -56,6 +56,12 @@ namespace wet2_dast {
         return DS_OK->getPlayersBound(GroupID, score, m, LowerBoundPlayers, HigherBoundPlayers);
     }
     void Quit(void **DS) {
+        auto *DS_OK = (PlayerManager *) *DS;
+        if (!DS) {
+            return;
+        }
+        DS_OK->Quit()
+        * DS = NULL;
 
     }
 }
