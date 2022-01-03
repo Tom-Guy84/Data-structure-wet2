@@ -2,7 +2,7 @@
 #include "group.h"
 #include "player.h"
 
-namespace wet1_dast {
+namespace wet2_dast {
 
     bool Group::operator==(const Group &group) const {
         return (this->Group_Id == group.Group_Id);
@@ -26,7 +26,7 @@ namespace wet1_dast {
         delete[] players_level;
         delete[] players_id;
         to_delete->size = 0;
-        to_insert->players.Union(to_delete->players);
+        Union(to_insert->players, to_delete->players);
     }
 
 
@@ -36,7 +36,7 @@ namespace wet1_dast {
 
 
     void Group::AddPlayer(Player& player) {
-        players.insert_object(player, player.getId());
+        players.insert_object(&player, player.getId());
         size++;
     }
 
@@ -57,7 +57,7 @@ namespace wet1_dast {
     }
 
     Player* Group::findPlayer(int PlayerId) {
-        return players.find_object(PlayerId)
+        return players.find_object(PlayerId);
     }
 
     void Group::removePlayer(int player_id) {
@@ -115,5 +115,5 @@ namespace wet1_dast {
         players_by_score.insert(*player_by_score);
     }
 
-}
+} //namespace wet2_dast
 

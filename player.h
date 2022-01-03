@@ -7,7 +7,7 @@
 #ifndef DAST_PLAYER_H
 #define DAST_PLAYER_H
 
-namespace wet1_dast {
+namespace wet2_dast {
 
     class Player {
     private:
@@ -43,7 +43,7 @@ namespace wet1_dast {
     };
 
 
-}
+}//namespace wet2_dast
 
 
 #endif //DAST_PLAYER_H

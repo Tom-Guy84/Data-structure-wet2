@@ -11,8 +11,7 @@
 #ifndef AVLRANKTREE_H_
 #define AVLRANKTREE_H_
 
-namespace wet2_dast
-{
+namespace wet2_dast{
 
     const int NOT_EXIST = -1;
 
@@ -129,11 +128,11 @@ namespace wet2_dast
 
         static void postOrderDelete(Node* ver, bool delete_values);
 
-        int findIndex(Node* ver);
+        int findIndex(Node* ver) const;
 
-        Node* ClosestFromAbove(T* value);
+        Node* ClosestFromAbove(T* value) const;
 
-        Node* ClosestFromBelow(T *value);
+        Node* ClosestFromBelow(T *value) const;
 
     public:
         friend void combineTrees(AVLRankTree<T> &to_delete, AVLRankTree<T>& to_insert)
@@ -810,7 +809,7 @@ namespace wet2_dast
     }
 
     template<class T>
-    int AVLRankTree<T>::findIndex(AVLRankTree::Node *ver)
+    int AVLRankTree<T>::findIndex(AVLRankTree::Node *ver) const
     {
         if(!ver)
             return 0;
@@ -830,17 +829,41 @@ namespace wet2_dast
     }
 
     template<class T>
-    typename AVLRankTree<T>::Node *AVLRankTree<T>::ClosestFromAbove(T *value)
+    typename AVLRankTree<T>::Node *AVLRankTree<T>::ClosestFromAbove(T *value) const
     {
-
+        Node* temp = root;
+        Node* candidate = nullptr;
+        while(temp)
+        {
+            if(*(temp->value) <= *value)
+            {
+                temp = temp->right_son;
+                continue;
+            }
+            candidate = temp;
+            temp = temp->left_son;
+        }
+        return candidate;
     }
 
     template<class T>
-    typename AVLRankTree<T>::Node *AVLRankTree<T>::ClosestFromBelow(T *value)
+    typename AVLRankTree<T>::Node *AVLRankTree<T>::ClosestFromBelow(T *value) const
     {
-        return nullptr;
+        Node* temp = root;
+        Node* candidate = nullptr;
+        while(temp)
+        {
+            if(*value <= *(temp->value))
+            {
+                temp = temp->left_son;
+                continue;
+            }
+            candidate = temp;
+            temp = temp->right_son;
+        }
+        return candidate;
     }
-}
+} //namespace wet2_dast
 
 
 #endif // AVLRANKTREE_H_

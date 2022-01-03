@@ -3,4 +3,4 @@ project(untitled3)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(wet2 main.cpp avlRankTree.h player.cpp player.h group.cpp group.h library2.h)
+add_executable(wet2 main.cpp AVLRankTree.h player.cpp player.h group.cpp group.h library2.h Union-Find.h HashTable.h)

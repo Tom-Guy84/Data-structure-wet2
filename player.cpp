@@ -1,7 +1,7 @@
 #include <iostream>
 #include "player.h"
 
-namespace wet1_dast
+namespace wet2_dast
 {
 
     Player::Player(int player_id, int level, int group = 0, bool sort_by_score = true, int score=0) :
@@ -85,4 +85,4 @@ namespace wet1_dast
     }
 
 
-}
+} //namespace wet2_dast

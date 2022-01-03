@@ -8,7 +8,7 @@
 #ifndef DAST_GROUP_H
 #define DAST_GROUP_H
 
-namespace wet1_dast {
+namespace wet2_dast {
     class Player;
     class Group {
     private:
@@ -39,5 +39,5 @@ namespace wet1_dast {
 
 
 //
-}
+} //namespace wet2_dast
 #endif //DAST_GROUP_H
