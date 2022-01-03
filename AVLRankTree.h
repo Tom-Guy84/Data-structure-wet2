@@ -832,7 +832,7 @@ namespace wet2_dast
     template<class T>
     typename AVLRankTree<T>::Node *AVLRankTree<T>::ClosestFromAbove(T *value)
     {
-        return nullptr;
+
     }
 
     template<class T>
