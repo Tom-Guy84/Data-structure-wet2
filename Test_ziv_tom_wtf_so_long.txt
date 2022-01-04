@@ -1,224 +1,766 @@
-Init 0 0
-Init -1 -1
-Init 1 0
-Init 1 201
-Init 1 -1
-Init 0 100
-Init 0 200
-Init 0 0
-Init 0 -100
-Init -34 -1
-Init 1 200
+Init 10000 100
 Quit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+MergeGroups 1 10
+Init 100 100
+MergeGroups -1 10
+MergeGroups -1 11
+MergeGroups -1 12
+MergeGroups -1 13
+MergeGroups -1 14
+MergeGroups -1 15
+MergeGroups -1 16
+MergeGroups -1 17
+MergeGroups -1 18
+MergeGroups -1 19
+MergeGroups -1 20
+MergeGroups -1 21
+MergeGroups -1 22
+MergeGroups -1 23
+MergeGroups -1 24
+MergeGroups -1 25
+MergeGroups -1 26
+MergeGroups -1 27
+MergeGroups -1 28
+MergeGroups -1 29
+MergeGroups -1 30
+MergeGroups -1 31
+MergeGroups -1 32
+MergeGroups -1 33
+MergeGroups -1 34
+MergeGroups -1 35
+MergeGroups -1 36
+MergeGroups -1 37
+MergeGroups -1 38
+MergeGroups -1 39
+MergeGroups -1 40
+MergeGroups -1 41
+MergeGroups -1 42
+MergeGroups -1 43
+MergeGroups -1 44
+MergeGroups -1 45
+MergeGroups -1 46
+MergeGroups -1 47
+MergeGroups -1 48
+MergeGroups -1 49
+MergeGroups -1 50
+MergeGroups -1 51
+MergeGroups -1 52
+MergeGroups -1 53
+MergeGroups -1 54
+MergeGroups -1 55
+MergeGroups -1 56
+MergeGroups -1 57
+MergeGroups -1 58
+MergeGroups -1 59
+MergeGroups -1 60
+MergeGroups -1 61
+MergeGroups -1 62
+MergeGroups -1 63
+MergeGroups -1 64
+MergeGroups -1 65
+MergeGroups -1 66
+MergeGroups -1 67
+MergeGroups -1 68
+MergeGroups -1 69
+MergeGroups -1 70
+MergeGroups -1 71
+MergeGroups -1 72
+MergeGroups -1 73
+MergeGroups -1 74
+MergeGroups -1 75
+MergeGroups -1 76
+MergeGroups -1 77
+MergeGroups -1 78
+MergeGroups -1 79
+MergeGroups -1 80
+MergeGroups -1 81
+MergeGroups -1 82
+MergeGroups -1 83
+MergeGroups -1 84
+MergeGroups -1 85
+MergeGroups -1 86
+MergeGroups -1 87
+MergeGroups -1 88
+MergeGroups -1 89
+MergeGroups -1 90
+MergeGroups -1 91
+MergeGroups -1 92
+MergeGroups -1 93
+MergeGroups -1 94
+MergeGroups -1 95
+MergeGroups -1 96
+MergeGroups -1 97
+MergeGroups -1 98
+MergeGroups -1 99
+MergeGroups -1 100
+MergeGroups 1 -10
+MergeGroups 1 -11
+MergeGroups 1 -12
+MergeGroups 1 -13
+MergeGroups 1 -14
+MergeGroups 1 -15
+MergeGroups 1 -16
+MergeGroups 1 -17
+MergeGroups 1 -18
+MergeGroups 1 -19
+MergeGroups 1 -20
+MergeGroups 1 -21
+MergeGroups 1 -22
+MergeGroups 1 -23
+MergeGroups 1 -24
+MergeGroups 1 -25
+MergeGroups 1 -26
+MergeGroups 1 -27
+MergeGroups 1 -28
+MergeGroups 1 -29
+MergeGroups 1 -30
+MergeGroups 1 -31
+MergeGroups 1 -32
+MergeGroups 1 -33
+MergeGroups 1 -34
+MergeGroups 1 -35
+MergeGroups 1 -36
+MergeGroups 1 -37
+MergeGroups 1 -38
+MergeGroups 1 -39
+MergeGroups 1 -40
+MergeGroups 1 -41
+MergeGroups 1 -42
+MergeGroups 1 -43
+MergeGroups 1 -44
+MergeGroups 1 -45
+MergeGroups 1 -46
+MergeGroups 1 -47
+MergeGroups 1 -48
+MergeGroups 1 -49
+MergeGroups 1 -50
+MergeGroups 1 -51
+MergeGroups 1 -52
+MergeGroups 1 -53
+MergeGroups 1 -54
+MergeGroups 1 -55
+MergeGroups 1 -56
+MergeGroups 1 -57
+MergeGroups 1 -58
+MergeGroups 1 -59
+MergeGroups 1 -60
+MergeGroups 1 -61
+MergeGroups 1 -62
+MergeGroups 1 -63
+MergeGroups 1 -64
+MergeGroups 1 -65
+MergeGroups 1 -66
+MergeGroups 1 -67
+MergeGroups 1 -68
+MergeGroups 1 -69
+MergeGroups 1 -70
+MergeGroups 1 -71
+MergeGroups 1 -72
+MergeGroups 1 -73
+MergeGroups 1 -74
+MergeGroups 1 -75
+MergeGroups 1 -76
+MergeGroups 1 -77
+MergeGroups 1 -78
+MergeGroups 1 -79
+MergeGroups 1 -80
+MergeGroups 1 -81
+MergeGroups 1 -82
+MergeGroups 1 -83
+MergeGroups 1 -84
+MergeGroups 1 -85
+MergeGroups 1 -86
+MergeGroups 1 -87
+MergeGroups 1 -88
+MergeGroups 1 -89
+MergeGroups 1 -90
+MergeGroups 1 -91
+MergeGroups 1 -92
+MergeGroups 1 -93
+MergeGroups 1 -94
+MergeGroups 1 -95
+MergeGroups 1 -96
+MergeGroups 1 -97
+MergeGroups 1 -98
+MergeGroups 1 -99
+MergeGroups 1 -100
+MergeGroups 1 1
+MergeGroups 1 2
+MergeGroups 1 3
+MergeGroups 1 4
+MergeGroups 1 5
+MergeGroups 1 6
+MergeGroups 1 7
+MergeGroups 1 8
+MergeGroups 1 9
+MergeGroups 1 10
+MergeGroups 1 10
+MergeGroups 1 11
+MergeGroups 1 12
+MergeGroups 1 13
+MergeGroups 1 14
+MergeGroups 1 15
+MergeGroups 1 16
+MergeGroups 1 17
+MergeGroups 1 18
+MergeGroups 1 19
+MergeGroups 1 20
+MergeGroups 1 21
+MergeGroups 1 22
+MergeGroups 1 23
+MergeGroups 1 24
+MergeGroups 1 25
+MergeGroups 1 26
+MergeGroups 1 27
+MergeGroups 1 28
+MergeGroups 1 29
+MergeGroups 1 30
+MergeGroups 1 31
+MergeGroups 1 32
+MergeGroups 1 33
+MergeGroups 1 34
+MergeGroups 1 35
+MergeGroups 1 36
+MergeGroups 1 37
+MergeGroups 1 38
+MergeGroups 1 39
+MergeGroups 1 40
+MergeGroups 1 41
+MergeGroups 1 42
+MergeGroups 1 43
+MergeGroups 1 44
+MergeGroups 1 45
+MergeGroups 1 46
+MergeGroups 1 47
+MergeGroups 1 48
+MergeGroups 1 49
+MergeGroups 1 50
+MergeGroups 1 51
+MergeGroups 1 52
+MergeGroups 1 53
+MergeGroups 1 54
+MergeGroups 1 55
+MergeGroups 1 56
+MergeGroups 1 57
+MergeGroups 1 58
+MergeGroups 1 59
+MergeGroups 1 60
+MergeGroups 1 61
+MergeGroups 1 62
+MergeGroups 1 63
+MergeGroups 1 64
+MergeGroups 1 65
+MergeGroups 1 66
+MergeGroups 1 67
+MergeGroups 1 68
+MergeGroups 1 69
+MergeGroups 1 70
+MergeGroups 1 71
+MergeGroups 1 72
+MergeGroups 1 73
+MergeGroups 1 74
+MergeGroups 1 75
+MergeGroups 1 76
+MergeGroups 1 77
+MergeGroups 1 78
+MergeGroups 1 79
+MergeGroups 1 80
+MergeGroups 1 81
+MergeGroups 1 82
+MergeGroups 1 83
+MergeGroups 1 84
+MergeGroups 1 85
+MergeGroups 1 86
+MergeGroups 1 87
+MergeGroups 1 88
+MergeGroups 1 89
+MergeGroups 1 90
+MergeGroups 1 91
+MergeGroups 1 92
+MergeGroups 1 93
+MergeGroups 1 94
+MergeGroups 1 95
+MergeGroups 1 96
+MergeGroups 1 97
+MergeGroups 1 98
+MergeGroups 1 99
+MergeGroups 1 100
+MergeGroups 1 1
+MergeGroups 1 2
+MergeGroups 1 3
+MergeGroups 1 4
+MergeGroups 1 5
+MergeGroups 1 6
+MergeGroups 1 7
+MergeGroups 1 8
+MergeGroups 1 9
+MergeGroups 1 10
+MergeGroups 1 10
+MergeGroups 1 11
+MergeGroups 1 12
+MergeGroups 1 13
+MergeGroups 1 14
+MergeGroups 1 15
+MergeGroups 1 16
+MergeGroups 1 17
+MergeGroups 1 18
+MergeGroups 1 19
+MergeGroups 1 20
+MergeGroups 1 21
+MergeGroups 1 22
+MergeGroups 1 23
+MergeGroups 1 24
+MergeGroups 1 25
+MergeGroups 1 26
+MergeGroups 1 27
+MergeGroups 1 28
+MergeGroups 1 29
+MergeGroups 1 30
+MergeGroups 1 31
+MergeGroups 1 32
+MergeGroups 1 33
+MergeGroups 1 34
+MergeGroups 1 35
+MergeGroups 1 36
+MergeGroups 1 37
+MergeGroups 1 38
+MergeGroups 1 39
+MergeGroups 1 40
+MergeGroups 1 41
+MergeGroups 1 42
+MergeGroups 1 43
+MergeGroups 1 44
+MergeGroups 1 45
+MergeGroups 1 46
+MergeGroups 1 47
+MergeGroups 1 48
+MergeGroups 1 49
+MergeGroups 1 50
+MergeGroups 1 51
+MergeGroups 1 52
+MergeGroups 1 53
+MergeGroups 1 54
+MergeGroups 1 55
+MergeGroups 1 56
+MergeGroups 1 57
+MergeGroups 1 58
+MergeGroups 1 59
+MergeGroups 1 60
+MergeGroups 1 61
+MergeGroups 1 62
+MergeGroups 1 63
+MergeGroups 1 64
+MergeGroups 1 65
+MergeGroups 1 66
+MergeGroups 1 67
+MergeGroups 1 68
+MergeGroups 1 69
+MergeGroups 1 70
+MergeGroups 1 71
+MergeGroups 1 72
+MergeGroups 1 73
+MergeGroups 1 74
+MergeGroups 1 75
+MergeGroups 1 76
+MergeGroups 1 77
+MergeGroups 1 78
+MergeGroups 1 79
+MergeGroups 1 80
+MergeGroups 1 81
+MergeGroups 1 82
+MergeGroups 1 83
+MergeGroups 1 84
+MergeGroups 1 85
+MergeGroups 1 86
+MergeGroups 1 87
+MergeGroups 1 88
+MergeGroups 1 89
+MergeGroups 1 90
+MergeGroups 1 91
+MergeGroups 1 92
+MergeGroups 1 93
+MergeGroups 1 94
+MergeGroups 1 95
+MergeGroups 1 96
+MergeGroups 1 97
+MergeGroups 1 98
+MergeGroups 1 99
+MergeGroups 1 100
+Quit
+AddPlayer 1 1 1
+Init 100 100
+AddPlayer  1  1  101
+AddPlayer  2  2  101
+AddPlayer  3  3  101
+AddPlayer  4  4  101
+AddPlayer  5  5  101
+AddPlayer  6  6  101
+AddPlayer  1  1  100
+AddPlayer  2  2  100
+AddPlayer  3  3  100
+AddPlayer  4  4  100
+AddPlayer  5  5  100
+AddPlayer  6  6  100
+AddPlayer  7  7  7
+AddPlayer  8  8  8
+AddPlayer  9  9  9
+AddPlayer  10 10 10
+AddPlayer -11 11 11
+AddPlayer -12 12 12
+AddPlayer -13 13 13
+AddPlayer -14 14 14
+AddPlayer -15 15 15
+AddPlayer -16 16 16
+AddPlayer -17 17 17
+AddPlayer -18 18 18
+AddPlayer -19 19 19
+AddPlayer -20 20 20
+AddPlayer  21 -21 21
+AddPlayer  22 -22 22
+AddPlayer  23 -23 23
+AddPlayer  24 -24 24
+AddPlayer  25 -25 25
+AddPlayer  26 -26 26
+AddPlayer  27 -27 27
+AddPlayer  28 -28 28
+AddPlayer  29 -29 29
+AddPlayer  30 -30 30
+AddPlayer  31 -31 31
+AddPlayer  32 -32 32
+AddPlayer  33 -33 33
+AddPlayer  34 -34 34
+AddPlayer  35 -35 35
+AddPlayer  36 -36 36
+AddPlayer  37 -37 37
+AddPlayer  38 -38 38
+AddPlayer  39 -39 39
+AddPlayer  40 -40 40
+AddPlayer  41 41 -41
+AddPlayer  42 42 -42
+AddPlayer  43 43 -43
+AddPlayer  44 44 -44
+AddPlayer  45 45 -45
+AddPlayer  46 46 -46
+AddPlayer  47 47 -47
+AddPlayer  48 48 -48
+AddPlayer  49 49 -49
+AddPlayer  50 50 -50
+AddPlayer  41 41 -1
+AddPlayer  42 42 -1
+AddPlayer  43 43 -1
+AddPlayer  44 44 -1
+AddPlayer  45 45 -1
+AddPlayer  46 46 -1
+AddPlayer  47 47 -1
+AddPlayer  48 48 -1
+AddPlayer  49 49 -1
+AddPlayer  50 50 -1
+AddPlayer  41 41 0
+AddPlayer  42 42 0
+AddPlayer  43 43 0
+AddPlayer  44 44 0
+AddPlayer  45 45 0
+AddPlayer  46 46 0
+AddPlayer  47 47 0
+AddPlayer  48 48 0
+AddPlayer  49 49 0
+AddPlayer  50 50 0
+AddPlayer   51 51 51
+AddPlayer   52 52 52
+AddPlayer   53 53 53
+AddPlayer   54 54 54
+AddPlayer   55 55 55
+AddPlayer   56 56 56
+AddPlayer   57 57 57
+AddPlayer   58 58 58
+AddPlayer   59 59 59
+AddPlayer   60 60 60
+AddPlayer   61 61 61
+AddPlayer   62 62 62
+AddPlayer   63 63 63
+AddPlayer   51 51 51
+AddPlayer   52 52 52
+AddPlayer   53 53 53
+AddPlayer   54 54 54
+AddPlayer   55 55 55
+AddPlayer   56 56 56
+AddPlayer   57 57 57
+AddPlayer   58 58 58
+AddPlayer   59 59 59
+AddPlayer   60 60 60
+AddPlayer   61 61 61
+AddPlayer   62 62 62
+AddPlayer   63 63 63
+AddPlayer   51 90 51
+AddPlayer   52 90 52
+AddPlayer   53 90 53
+AddPlayer   54 90 54
+AddPlayer   55 90 55
+AddPlayer   56 90 56
+AddPlayer   57 90 57
+AddPlayer   58 90 58
+AddPlayer   59 90 59
+AddPlayer   60 90 60
+AddPlayer   61 90 61
+AddPlayer   62 90 62
+AddPlayer   63 90 63
+AddPlayer   51 51 90
+AddPlayer   52 52 90
+AddPlayer   53 53 90
+AddPlayer   54 54 90
+AddPlayer   55 55 90
+AddPlayer   56 56 90
+AddPlayer   57 57 90
+AddPlayer   58 58 90
+AddPlayer   59 59 90
+AddPlayer   60 60 90
+AddPlayer   61 61 90
+AddPlayer   62 62 90
+AddPlayer   63 63 90
+AddPlayer  64 64 64
+AddPlayer  65 65 65
+AddPlayer  66 66 66
+AddPlayer  67 67 67
+AddPlayer  68 68 68
+AddPlayer  69 69 69
+AddPlayer  70 70 70
+AddPlayer  71 71 71
+AddPlayer  72 72 72
+AddPlayer  73 73 73
+AddPlayer  74 74 74
+AddPlayer  75 75 75
+AddPlayer  76 76 76
+AddPlayer  77 77 77
+AddPlayer  78 78 78
+AddPlayer  79 79 79
+AddPlayer  80 80 80
+AddPlayer  81 81 81
+AddPlayer  82 82 82
+AddPlayer  83 83 83
+AddPlayer  84 84 84
+AddPlayer  85 85 85
+AddPlayer  86 86 86
+AddPlayer  87 87 87
+AddPlayer  88 88 88
+AddPlayer  89 89 89
+AddPlayer  90 90 90
+AddPlayer  91 91 91
+AddPlayer  92 92 92
+AddPlayer  93 93 93
+AddPlayer  94 94 94
+AddPlayer  95 95 95
+AddPlayer  96 96 96
+AddPlayer  97 97 97
+AddPlayer  98 98 98
+AddPlayer  99 99 99
+AddPlayer  100 100 100
+MergeGroups 1 2
+MergeGroups 1 3
+MergeGroups 1 4
+MergeGroups 1 5
+MergeGroups 1 6
+AddPlayer 7 7 7
+AddPlayer 8 8 8
+AddPlayer 7 8 9
+AddPlayer 8 7 9
+ MergeGroups 1 7
+ MergeGroups 1 8
+ MergeGroups 1 9
+ MergeGroups 1 10 
+ MergeGroups 1 11
+ MergeGroups 1 12
+ MergeGroups 1 13
+ MergeGroups 1 14
+ MergeGroups 1 15
+ MergeGroups 1 16
+ MergeGroups 1 17
+ MergeGroups 1 18
+ MergeGroups 1 19
+ MergeGroups 1 20
+ MergeGroups 1 21
+ MergeGroups 1 22
+ MergeGroups 1 23
+ MergeGroups 1 24
+ MergeGroups 1 25
+ MergeGroups 1 26
+ MergeGroups 1 27
+ MergeGroups 1 28
+ MergeGroups 1 29
+ MergeGroups 1 30
+ MergeGroups 1 31
+ MergeGroups 1 32
+ MergeGroups 1 33
+ MergeGroups 1 34
+ MergeGroups 1 35
+ MergeGroups 1 36
+ MergeGroups 1 37
+ MergeGroups 1 38
+ MergeGroups 1 39
+ MergeGroups 1 40
+ MergeGroups 1 41
+ MergeGroups 1 42
+ MergeGroups 1 43
+ MergeGroups 1 44
+ MergeGroups 1 45
+ MergeGroups 1 46
+ MergeGroups 1 47
+ MergeGroups 1 48
+ MergeGroups 1 49
+ MergeGroups 1 50
+ MergeGroups 1 51
+ MergeGroups 1 52
+ MergeGroups 1 53
+ MergeGroups 1 54
+ MergeGroups 1 55
+ MergeGroups 1 56
+ MergeGroups 1 57
+ MergeGroups 1 58
+ MergeGroups 1 59
+ MergeGroups 1 60
+ MergeGroups 1 61
+ MergeGroups 1 62
+ MergeGroups 1 63
+ MergeGroups 1 64
+ MergeGroups 1 65
+ MergeGroups 1 66
+ MergeGroups 1 67
+ MergeGroups 1 68
+ MergeGroups 1 69
+ MergeGroups 1 70
+ MergeGroups 1 71
+ MergeGroups 1 72
+ MergeGroups 1 73
+ MergeGroups 1 74
+ MergeGroups 1 75
+ MergeGroups 1 76
+ MergeGroups 1 77
+ MergeGroups 1 78
+ MergeGroups 1 79
+ MergeGroups 1 80
+ MergeGroups 1 81
+ MergeGroups 1 82
+ MergeGroups 1 83
+ MergeGroups 1 84
+ MergeGroups 1 85
+ MergeGroups 1 86
+ MergeGroups 1 87
+ MergeGroups 1 88
+ MergeGroups 1 89
+ MergeGroups 1 90
+ MergeGroups 1 91
+ MergeGroups 1 92
+ MergeGroups 1 93
+ MergeGroups 1 94
+ MergeGroups 1 95
+ MergeGroups 1 96
+ MergeGroups 1 97
+ MergeGroups 1 98
+ MergeGroups 1 99
+ MergeGroups 1 100
+Quit
+Init
+AddPlayer 1  1  0
+AddPlayer 2  1  0
+AddPlayer 3  1  0
+AddPlayer 4  1  0
+AddPlayer 5  1  0
+AddPlayer 6  1  0
+AddPlayer 7  1  0
+AddPlayer 8  1  0
+AddPlayer 9  1  0
+AddPlayer 10 1  0
+AddPlayer 10 1  0
+AddPlayer 11 1  0
+AddPlayer 12 1  0
+AddPlayer 13 1  0
+AddPlayer 14 1  0
+AddPlayer 15 1  0
+AddPlayer 16 1  0
+AddPlayer 17 1  0
+AddPlayer 18 1  0
+AddPlayer 19 1  0
+AddPlayer 20 1  0
+AddPlayer 21 1  0
+AddPlayer 22 1  0
+AddPlayer 23 1  0
+AddPlayer 24 1  0
+AddPlayer 25 1  0
+AddPlayer 26 1  0
+AddPlayer 27 1  0
+AddPlayer 28 1  0
+AddPlayer 29 1  0
+AddPlayer 30 1  0
+AddPlayer 31 1  0
+AddPlayer 32 1  0
+AddPlayer 33 1  0
+AddPlayer 34 1  0
+AddPlayer 35 1  0
+AddPlayer 36 1  0
+AddPlayer 37 1  0
+AddPlayer 38 1  0
+AddPlayer 39 1  0
+AddPlayer 40 1  0
+AddPlayer 41 1  0
+AddPlayer 42 1  0
+AddPlayer 43 1  0
+AddPlayer 44 1  0
+AddPlayer 45 1  0
+AddPlayer 46 1  0
+AddPlayer 47 1  0
+AddPlayer 48 1  0
+AddPlayer 49 1  0
+AddPlayer 50 1  0
+AddPlayer 51 1  0
+AddPlayer 52 1  0
+AddPlayer 53 1  0
+AddPlayer 54 1  0
+AddPlayer 55 1  0
+AddPlayer 56 1  0
+AddPlayer 57 1  0
+AddPlayer 58 1  0
+AddPlayer 59  1 0
+AddPlayer 60  1 0
+AddPlayer 61  1 0
+AddPlayer 62  1 0
+AddPlayer 63  1 0
+AddPlayer 64  1 0
+AddPlayer 65  1 0
+AddPlayer 66  1 0
+AddPlayer 67  1 0
+AddPlayer 68  1 0
+AddPlayer 69  1 0
+AddPlayer 70  1 0
+AddPlayer 71  1 0
+AddPlayer 72  1 0
+AddPlayer 73  1 0
+AddPlayer 74  1 0
+AddPlayer 75  1 0
+AddPlayer 76  1 0
+AddPlayer 77  1 0
+AddPlayer 78  1 0
+AddPlayer 79  1 0
+AddPlayer 80  1 0
+AddPlayer 81  1 0
+AddPlayer 82  1 0
+AddPlayer 83  1 0
+AddPlayer 84  1 0
+AddPlayer 85  1 0
+AddPlayer 86  1 0
+AddPlayer 87  1 0
+AddPlayer 88  1 0
+AddPlayer 89  1 0
+AddPlayer 90  1 0
+AddPlayer 91  1 0
+AddPlayer 92  1 0
+AddPlayer 93  1 0
+AddPlayer 94  1 0
+AddPlayer 95  1 0
+AddPlayer 96  1 0
+AddPlayer 97  1 0
+AddPlayer 98  1 0
+AddPlayer 99  1 0
+AddPlayer 100 1 0
+Quit
 
 
 

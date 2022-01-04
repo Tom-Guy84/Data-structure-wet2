@@ -1,7 +1,8 @@
 
 #include "PlayerManager.h"
 #include "library2.h"
-
+//what i want- i want to sum on all averages on tree.
+//how do i do it. I need to go on a tree of all players ,
 using namespace wet2_dast;
 
 void *Init(int k, int scale) {
@@ -20,6 +21,7 @@ StatusType MergeGroups(void *DS, int GroupID1, int GroupID2) {
     if (DS == NULL) {
         return INVALID_INPUT;
     }
+
     auto *DS_OK = (PlayerManager *) DS;
     return DS_OK->mergeGroups(GroupID1, GroupID2);
 

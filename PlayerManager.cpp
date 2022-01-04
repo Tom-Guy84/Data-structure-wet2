@@ -18,6 +18,10 @@ namespace wet2_dast{
         {
             return INVALID_INPUT;
         }
+        if(GroupID1==GroupID2)
+        {
+            return SUCCESS;
+        }
         try
         {
             groups->Union(GroupID1, GroupID2);
