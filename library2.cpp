@@ -12,7 +12,7 @@ void *Init(int k, int scale) {
         return (void *) manager;
     }
     catch (std::exception &e) {
-        return NULL;
+        return NULL;//hello
     }
 }
 
