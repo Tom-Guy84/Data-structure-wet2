@@ -73,16 +73,56 @@ namespace wet2_dast{
 
     StatusType
     PlayerManager::getPercentOfPlayersWithScoreInBounds(int GroupID, int score, int lowerLevel, int higherLevel,
-                                                        double *average) {
-        return FAILURE;
+                                                        double *players) {
+        if (!players || GroupID < 0 || GroupID > num_of_groups)
+            return INVALID_INPUT;
+        try {
+            Group *group = groups->find(GroupID);
+            *players = group->getPercentOfPlayersWithScoreInBounds(score, lowerLevel, higherLevel);
+            return SUCCESS;
+        }
+        catch (AVLRankTree<Player>::exceptions &e) {
+            return FAILURE;
+        }
+        catch (std::exception &e) {
+            return ALLOCATION_ERROR;
+        }
     }
 
     StatusType PlayerManager::increasePlayerIDLevel(int PlayerID, int LevelIncrease) {
-        return FAILURE;
+        if (PlayerID <= 0 || LevelIncrease <= 0)
+            return INVALID_INPUT;
+        try {
+            Group *group = groups->find(0);
+            Player *player = group->findPlayer(PlayerID);
+            Group *players_group = groups->find(player->getGroup());
+            players_group->increaseLevelToPlayer(PlayerID, LevelIncrease);
+            group->increaseLevelToPlayer(PlayerID, LevelIncrease);
+        }
+        catch (HashTable<Player>::exceptions &e) {
+            return FAILURE;
+        }
+        catch (std::exception &e) {
+            return ALLOCATION_ERROR;
+        }
     }
 
     StatusType PlayerManager::changePlayerIDScore(int PlayerID, int NewScore) {
-        return FAILURE;
+        if (PlayerID <= 0 || NewScore <= 0 || NewScore > scale)
+            return INVALID_INPUT;
+        try {
+            Group *group = groups->find(0);
+            Player *player = group->findPlayer(PlayerID);
+            Group *players_group = groups->find(player->getGroup());
+            players_group->increaseScoreToPlayer(PlayerID, NewScore);
+            group->increaseScoreToPlayer(PlayerID, NewScore);
+        }
+        catch (HashTable<Player>::exceptions &e) {
+            return FAILURE;
+        }
+        catch (std::exception &e) {
+            return ALLOCATION_ERROR;
+        }
     }
 
     StatusType PlayerManager::averageHighestPlayerLevelByGroup(int GroupID, int m, double *avgLevel) {
@@ -96,7 +136,6 @@ namespace wet2_dast{
 
     PlayerManager::~PlayerManager() {
         delete groups;
-
     }
 
 
