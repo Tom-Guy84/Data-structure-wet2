@@ -53,19 +53,21 @@ namespace wet2_dast {
         int prime_hash_encoder;
         int size;
         array_object *hash_table_array;//will point to t array.
-        int current_objects_count = 0;//will count how much objects are in the current array
+        int current_objects_count = 0;//will count how many objects are in the current array
         void resize(int new_size);
 
         int Hash_function(int key, int k);//to be worked
         int Hash_function_aux(int key);
 
         int step_function(int key);
-        int find_object_aux(bool to_insert_mode, int key);//two modes,one to_insert_mode==true will find me a nullptr place/can_insert=true.
+
+        int find_object_aux(bool to_insert_mode,
+                            int key);//two modes,one to_insert_mode==true will find me a nullptr place/can_insert=true.
         //mode 2 (to_insert_mode=false) will find me an actual file
         int closest_prime_to_size(int size);
 
     public:
-        explicit HashTable(int size=MINIMUM_ARRAY_SIZE);
+        explicit HashTable(int size = MINIMUM_ARRAY_SIZE);
 
         void print_array();
 
@@ -74,21 +76,23 @@ namespace wet2_dast {
         void delete_object( int key);
         friend void Union (HashTable<T>& destination,HashTable<T>& source){
 
-                for (int i = 0; i < source.size; ++i) {
-                    //1 by 1
-                    if(source.hash_table_array[i].getObject()!=nullptr&&source.hash_table_array[i].CanInsert()==false) {
-                        destination.insert_object(source.hash_table_array[i].getObject(), source.hash_table_array[i].getKey());
-                        source.hash_table_array[i].setObject(nullptr);
-                        source.hash_table_array[i].change_insertion_status(true);
-                    }
+            for (int i = 0; i < source.size; ++i) {
+                //1 by 1
+                if (source.hash_table_array[i].getObject() != nullptr &&
+                    source.hash_table_array[i].CanInsert() == false) {
+                    destination.insert_object(source.hash_table_array[i].getObject(),
+                                              source.hash_table_array[i].getKey());
+                    source.hash_table_array[i].setObject(nullptr);
+                    source.hash_table_array[i].change_insertion_status(true);
                 }
-                source.resize(MINIMUM_ARRAY_SIZE);
             }
+            source.resize(MINIMUM_ARRAY_SIZE);
+        }
 
-        T* find_object(int key);//returns nullptr 1 if it didn't found anything,else returns the object itself.
+        T *find_object(int key);//returns nullptr 1 if it didn't find anything,else returns the object itself.
         ~HashTable();
-        class exceptions : public std::exception
-        {
+
+        class exceptions : public std::exception {
         };
     };
 
@@ -145,7 +149,7 @@ namespace wet2_dast {
 //        }
 //        if (object != nullptr && arrayObject.getObject() != nullptr) {
 //            return (key == arrayObject.getKey() && *(this->object) == *(arrayObject.getObject()));
-//            //for the question , theorically i can allocate two objects with the same values in two different memory addresses
+//            //for the question , theoretically I can allocate two objects with the same values in two different memory addresses
 ////        }
         assert(arrayObject.getKey()>=0&&this->key>=0);
         return key==(arrayObject.getKey());
@@ -157,7 +161,7 @@ namespace wet2_dast {
     }
 
     template<class T>
-//return true if its ok to insert,false otherwise.
+//return true if it is ok to insert,false otherwise.
     bool HashTable<T>::array_object::CanInsert() const {
         return can_insert;
     }
@@ -187,7 +191,7 @@ namespace wet2_dast {
         array_object *temp = hash_table_array;
         hash_table_array = new_array;
         for (int i = 0; i < size; i++) {
-            //if current object, is either nullptr(assume we always start with nullptr when we dont insert anything ) or it can't be inserted(meaning we have value there that we need to move)
+            //if current object, is either nullptr(assume we always start with nullptr when we don't insert anything ) or it can't be inserted(meaning we have value there that we need to move)
             if (temp[i].getObject() != nullptr || (temp[i].CanInsert() == false)) {
                 int hash_key = find_object_aux(true, temp[i].getKey());
 
@@ -218,21 +222,21 @@ namespace wet2_dast {
 //this will represent h(x)+r(x)
     template<class T>
     int HashTable<T>::Hash_function(int key, int k) { // todo
-        assert(k >= 0&&key>=0);// personally I wouldn't let him go to k, its just for checking we're okay.
+        assert(k >= 0 && key >= 0);// personally I wouldn't let him go to k, it is just for checking we're okay.
         return (Hash_function_aux(key) + k * step_function(key)) % prime_hash_encoder;
     }
 
     template<class T>
     void HashTable<T>::insert_object(T *object, int key) { //wip todo
         //if its already exists,then dont insert it again.
-        assert(object!=nullptr&&key>=0);
+        assert(object != nullptr && key >= 0);
         int hashed_key = (find_object_aux(false, key));//query existence
         if (hashed_key != NOT_FOUND) {
             throw exceptions();
         }
         //next , we want to find an index that can be inserted (meaning :nullptr or can be inserted)
         hashed_key = find_object_aux(true, key);//query if we can find place for ihm.
-        assert(hashed_key != NOT_FOUND);//this SHOULDN'T HAPPEN,it means our hashfunction /find doesnt work properly.
+        assert(hashed_key != NOT_FOUND);//this SHOULDN'T HAPPEN,it means our hash-function /find doesnt work properly.
         array_object to_insert(object, key);
         hash_table_array[hashed_key] = to_insert;
         hash_table_array[hashed_key].change_insertion_status(false);
@@ -263,8 +267,8 @@ namespace wet2_dast {
 //we need to attain key somehow.
 
     template<class T>
-//for the big QUESTION : ZIV, WHY YOU USE T* OBJECT INSTEAD OF T& or smthing??
-//answer(because i know ill forget it), when i want to find an "empty place", i should look for nullptr.t& cant ge tnullptr
+//for the big QUESTION : ZIV, WHY YOU USE T* OBJECT INSTEAD OF T& or something??
+//answer(because I know ill forget it), when I want to find an "empty place", I should look for nullptr.t& cant ge tnullptr
     int HashTable<T>::find_object_aux(bool to_insert_mode, int key) {
         //we should theoritcally have two modes,finding for insertion, finding for existence.
         array_object object_to_find(nullptr, key);

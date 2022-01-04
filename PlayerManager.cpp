@@ -12,18 +12,6 @@ namespace wet2_dast{
                                                  // all the groups in the structure
     }
 
-    PlayerManager *PlayerManager::PlayerManagerInit(int k, int scale) {
-        if (k <= 0 || scale <= 0 || scale > 200)
-            return NULL;
-        try {
-            auto *manager = new PlayerManager(k, scale);
-            return manager;
-        }
-        catch (std::exception &e) {
-            return NULL;
-        }
-    }
-
     StatusType PlayerManager::mergeGroups(int GroupID1, int GroupID2)
     {
         if(GroupID1 <=0 || GroupID1 > num_of_groups || GroupID2 <= 0 || GroupID2 > num_of_groups)
@@ -47,12 +35,13 @@ namespace wet2_dast{
             return INVALID_INPUT;
         try
         {
-            auto* player_in_group = new Player(PlayerID, 0, GroupID, true, score);
-            Group* players_group = groups->find(GroupID);
+            auto *player_in_group = new Player(PlayerID, 0, GroupID, true, score);
+            Group *players_group = groups->find(GroupID);
             players_group->AddPlayer(*player_in_group);
-            auto* player = new Player(PlayerID, 0, GroupID, true, score);
-            Group* group = groups->find(0);
+            auto *player = new Player(PlayerID, 0, GroupID, true, score);
+            Group *group = groups->find(0);
             group->AddPlayer(*player);
+            return SUCCESS;
         }
         catch (HashTable<Player>::exceptions& e)
         {
@@ -73,14 +62,41 @@ namespace wet2_dast{
             Group* group = groups->find(0);
             Player* player = group->findPlayer(PlayerID);
             int GroupID = player->getGroup();
-            Group* players_group = groups->find(GroupID);
+            Group *players_group = groups->find(GroupID);
             players_group->removePlayer(PlayerID);
             group->removePlayer(PlayerID);
         }
-        catch (std::exception& e)
-        {
+        catch (std::exception &e) {
             return FAILURE;
         }
+    }
+
+    StatusType
+    PlayerManager::getPercentOfPlayersWithScoreInBounds(int GroupID, int score, int lowerLevel, int higherLevel,
+                                                        double *average) {
+        return FAILURE;
+    }
+
+    StatusType PlayerManager::increasePlayerIDLevel(int PlayerID, int LevelIncrease) {
+        return FAILURE;
+    }
+
+    StatusType PlayerManager::changePlayerIDScore(int PlayerID, int NewScore) {
+        return FAILURE;
+    }
+
+    StatusType PlayerManager::averageHighestPlayerLevelByGroup(int GroupID, int m, double *avgLevel) {
+        return FAILURE;
+    }
+
+    StatusType
+    PlayerManager::getPlayersBound(int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers) {
+        return FAILURE;
+    }
+
+    PlayerManager::~PlayerManager() {
+        delete groups;
+
     }
 
 
