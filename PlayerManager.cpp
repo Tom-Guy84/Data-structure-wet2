@@ -65,6 +65,7 @@ namespace wet2_dast{
             Group *players_group = groups->find(GroupID);
             players_group->removePlayer(PlayerID);
             group->removePlayer(PlayerID);
+            return SUCCESS;
         }
         catch (std::exception &e) {
             return FAILURE;
@@ -98,6 +99,7 @@ namespace wet2_dast{
             Group *players_group = groups->find(player->getGroup());
             players_group->increaseLevelToPlayer(PlayerID, LevelIncrease);
             group->increaseLevelToPlayer(PlayerID, LevelIncrease);
+            return SUCCESS;
         }
         catch (HashTable<Player>::exceptions &e) {
             return FAILURE;
@@ -116,6 +118,7 @@ namespace wet2_dast{
             Group *players_group = groups->find(player->getGroup());
             players_group->increaseScoreToPlayer(PlayerID, NewScore);
             group->increaseScoreToPlayer(PlayerID, NewScore);
+            return SUCCESS;
         }
         catch (HashTable<Player>::exceptions &e) {
             return FAILURE;
