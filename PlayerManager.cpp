@@ -130,5 +130,27 @@ namespace wet2_dast{
         }
     }
 
+    StatusType
+    PlayerManager::getPercentOfPlayersWithScoreInBounds(int GroupID, int score, int lowerLevel, int higherLevel,
+                                                        double *players)
+    {
+        if(!players || GroupID < 0 || GroupID > num_of_groups)
+            return INVALID_INPUT;
+        try
+        {
+            Group* group = groups->find(GroupID);
+            *players = group->getPercentOfPlayersWithScoreInBounds(score, lowerLevel, higherLevel);
+            return SUCCESS;
+        }
+        catch (AVLRankTree<Player>::exceptions& e)
+        {
+            return FAILURE;
+        }
+        catch (std::exception& e)
+        {
+            return ALLOCATION_ERROR;
+        }
+    }
+
 
 } //namespace wet2_dast

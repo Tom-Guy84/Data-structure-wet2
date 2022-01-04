@@ -16,8 +16,7 @@ namespace wet2_dast {
         AVLRankTree<Player> players_by_score;
         AVLRankTree<Player> players_by_level;
         HashTable<Player> players;
-        int size ;
-        int max_level;
+        int size;
     public:
         explicit Group(int Group_id);
         Group();
@@ -34,7 +33,7 @@ namespace wet2_dast {
         void increaseLevelToPlayer(int player_id, int levelIncrease);
         void increaseScoreToPlayer(int player_id, int scoreIncrease);
         Player ** getPlayersByLevel();
-
+        double getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel);
     };
 
 

@@ -115,5 +115,15 @@ namespace wet2_dast {
         players_by_score.insert(*player_by_score);
     }
 
+    double Group::getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel)
+    {
+        Player lower_player_score(0 ,lowerLevel, Group_Id, true, score);
+        Player higher_player_score(0, higherLevel + 1, Group_Id, true, score);
+        Player lower_player_level(0, lowerLevel, Group_Id, false, score);
+        Player higher_player_level(0, higherLevel +1, Group_Id, false, score);
+        return (((double)(players_by_score.between_to_places(lower_player_score, higher_player_score)))
+        /players_by_level.between_to_places(lower_player_level, higher_player_level));
+    }
+
 } //namespace wet2_dast
 

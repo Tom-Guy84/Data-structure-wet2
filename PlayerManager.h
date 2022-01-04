@@ -27,7 +27,7 @@ namespace wet2_dast {
         StatusType increasePlayerIDLevel(int PlayerID, int LevelIncrease);
         StatusType changePlayerIDScore(int PlayerID, int NewScore);
         StatusType getPercentOfPlayersWithScoreInBounds(int GroupID, int score, int lowerLevel,
-                                                        int higherLevel, double* average);
+                                                        int higherLevel, double* players);
         StatusType averageHighestPlayerLevelByGroup(int GroupID, int m, double* avgLevel);
         StatusType getPlayersBound(int GroupID, int score, int m, int * LowerBoundPlayers, int *HigherBoundPlayers);
         ~PlayerManager() = default;
