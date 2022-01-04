@@ -9,7 +9,7 @@ void *Init(int k, int scale) {
     if (k <= 0 || scale <= 0 || scale > 200)
         return NULL;
     try {
-        auto *manager = new PlayerManager(k, scale);
+        auto *manager = PlayerManager::Init(k, scale);
         return (void *) manager;
     }
     catch (std::exception &e) {

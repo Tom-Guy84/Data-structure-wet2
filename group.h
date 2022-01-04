@@ -33,7 +33,8 @@ namespace wet2_dast {
         void increaseLevelToPlayer(int player_id, int levelIncrease);
         void increaseScoreToPlayer(int player_id, int scoreIncrease);
         Player ** getPlayersByLevel();
-        double getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel);
+        double getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel) const;
+        double averageHighestPlayerLevel(int wanted_number_of_players) const;
     };
 
 

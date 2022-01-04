@@ -18,9 +18,10 @@ namespace wet2_dast {
         int num_of_groups;
         int scale;
         Union_Find<Group>* groups;
-
-    public:
         PlayerManager(int k, int scale);
+    public:
+
+        static PlayerManager* Init(int k, int scale);
 
         StatusType mergeGroups(int GroupID1, int GroupID2);
 
@@ -39,7 +40,7 @@ namespace wet2_dast {
 
         StatusType getPlayersBound(int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers);
 
-        ~PlayerManager();
+        ~PlayerManager() = default;
     };
 } //namespace wet2_dast
 
