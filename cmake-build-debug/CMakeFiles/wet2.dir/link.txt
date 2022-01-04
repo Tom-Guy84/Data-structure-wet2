@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/wet2.dir/main.cpp.o CMakeFiles/wet2.dir/player.cpp.o CMakeFiles/wet2.dir/group.cpp.o CMakeFiles/wet2.dir/library2.cpp.o CMakeFiles/wet2.dir/PlayerManager.cpp.o  -o wet2 

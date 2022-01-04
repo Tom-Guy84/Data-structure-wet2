@@ -128,11 +128,13 @@ namespace wet2_dast{
 
         static void postOrderDelete(Node* ver, bool delete_values);
 
-        int findIndex(Node* ver) const;
+        int findIndex(T* value) const;
 
-        Node* ClosestFromAbove(T* value) const;
+        Node* findVer(T* value) const;
 
-        Node* ClosestFromBelow(T *value) const;
+        T* ClosestFromAbove(const T& value) const;
+
+        T* ClosestFromBelow(const T& value) const;
 
     public:
         friend void combineTrees(AVLRankTree<T> &to_delete, AVLRankTree<T>& to_insert)
@@ -241,7 +243,7 @@ namespace wet2_dast{
 
         T* GetLowesValue();
 
-        int between_to_places(T* lower, T* higher);
+        int between_to_places(const T& lower, const T& higher);
 
     };
     static int max(int a, int b);
@@ -795,22 +797,25 @@ namespace wet2_dast{
     }
 
     template<class T>
-    int AVLRankTree<T>::between_to_places(T *lower_value, T *higher_value)
+    int AVLRankTree<T>::between_to_places(const T& lower_value, const T& higher_value)
     {
         Node** location;
         Node** father;
-        Node* lower = find_in_tree(root,*lower_value, location, father);
+        T* lower = find_in_tree(root,lower_value, location, father);
         if(!lower)
             lower = ClosestFromAbove(lower_value);
-        Node* higher = find_in_tree(root, *higher_value, location, father);
+        T* higher = find_in_tree(root, higher_value, location, father);
         if(!higher)
             higher = ClosestFromBelow(higher_value);
+        if(!higher || !lower)
+            throw AVLRankTree<T>::exceptions();
         return (findIndex(higher)-findIndex(lower)+1);
     }
 
     template<class T>
-    int AVLRankTree<T>::findIndex(AVLRankTree::Node *ver) const
+    int AVLRankTree<T>::findIndex(T* value) const
     {
+        Node* ver = findVer(value);
         if(!ver)
             return 0;
         int index = 0;
@@ -829,13 +834,13 @@ namespace wet2_dast{
     }
 
     template<class T>
-    typename AVLRankTree<T>::Node *AVLRankTree<T>::ClosestFromAbove(T *value) const
+    T *AVLRankTree<T>::ClosestFromAbove(const T& value) const
     {
         Node* temp = root;
         Node* candidate = nullptr;
         while(temp)
         {
-            if(*(temp->value) <= *value)
+            if(*(temp->value) <= value)
             {
                 temp = temp->right_son;
                 continue;
@@ -843,17 +848,17 @@ namespace wet2_dast{
             candidate = temp;
             temp = temp->left_son;
         }
-        return candidate;
+        return candidate->value;
     }
 
     template<class T>
-    typename AVLRankTree<T>::Node *AVLRankTree<T>::ClosestFromBelow(T *value) const
+    T *AVLRankTree<T>::ClosestFromBelow(const T& value) const
     {
         Node* temp = root;
         Node* candidate = nullptr;
         while(temp)
         {
-            if(*value <= *(temp->value))
+            if(value <= *(temp->value))
             {
                 temp = temp->left_son;
                 continue;
@@ -861,7 +866,25 @@ namespace wet2_dast{
             candidate = temp;
             temp = temp->right_son;
         }
-        return candidate;
+        return candidate->value;
+    }
+
+    template<class T>
+    typename AVLRankTree<T>::Node *AVLRankTree<T>::findVer(T *value) const
+    {
+        Node* temp = root;
+        while(temp)
+        {
+            if(*(temp->value) == *value)
+                return temp;
+            if(*value <= *(temp->value))
+            {
+                temp = temp->left_son;
+                continue;
+            }
+            temp = temp->right_son;
+        }
+        return nullptr;
     }
 } //namespace wet2_dast
 

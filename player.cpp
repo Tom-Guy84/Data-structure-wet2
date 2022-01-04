@@ -76,7 +76,7 @@ namespace wet2_dast
 
     void Player::setScore(int score_to_add)
     {
-        score +=score_to_add;
+        score = score_to_add;
     }
 
     int Player::getScore() const
