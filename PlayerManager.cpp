@@ -53,6 +53,7 @@ namespace wet2_dast{
             auto* player = new Player(PlayerID, 0, GroupID, true, score);
             Group* group = groups->find(0);
             group->AddPlayer(*player);
+            return SUCCESS;
         }
         catch (HashTable<Player>::exceptions& e)
         {
@@ -76,6 +77,7 @@ namespace wet2_dast{
             Group* players_group = groups->find(GroupID);
             players_group->removePlayer(PlayerID);
             group->removePlayer(PlayerID);
+            return SUCCESS;
         }
         catch (std::exception& e)
         {
@@ -94,6 +96,7 @@ namespace wet2_dast{
             Group* players_group = groups->find(player->getGroup());
             players_group->increaseLevelToPlayer(PlayerID, LevelIncrease);
             group->increaseLevelToPlayer(PlayerID, LevelIncrease);
+            return SUCCESS;
         }
         catch (HashTable<Player>::exceptions& e)
         {
@@ -116,6 +119,7 @@ namespace wet2_dast{
             Group* players_group = groups->find(player->getGroup());
             players_group->increaseScoreToPlayer(PlayerID, NewScore);
             group->increaseScoreToPlayer(PlayerID, NewScore);
+            return SUCCESS;
         }
         catch (HashTable<Player>::exceptions& e)
         {
@@ -165,6 +169,12 @@ namespace wet2_dast{
         {
             return ALLOCATION_ERROR;
         }
+    }
+
+    StatusType
+    PlayerManager::getPlayersBound(int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers)
+    {
+        return FAILURE;
     }
 
 

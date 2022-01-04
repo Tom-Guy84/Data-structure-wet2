@@ -129,8 +129,10 @@ namespace wet2_dast {
     {
         if(wanted_number_of_players > players_by_level.getSize())
         {
-            return
+            return ((players_by_level.getSize()*players_by_level.getAverage(players_by_level.getSize()))
+                                                                     /(double)wanted_number_of_players);
         }
+        return players_by_level.getAverage(wanted_number_of_players);
     }
 
 } //namespace wet2_dast

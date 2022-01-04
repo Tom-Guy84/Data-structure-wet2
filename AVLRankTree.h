@@ -29,13 +29,16 @@ namespace wet2_dast{
             Node *left_son;
             int height;
             int rank; // the size of the tree that this node is his root.
+            double average;
 
             explicit Node(T* val = nullptr, Node *father = nullptr) : value(val), father(father), right_son(nullptr),
                                                                       left_son(nullptr),
-                                                                      height(0), rank(1)
+                                                                      height(0), rank(1), average(0)
             {
                 left_son=nullptr;
                 right_son=nullptr;
+                if(val)
+                    average = val->getLevel();
             }
             ~Node()
             {
@@ -60,6 +63,8 @@ namespace wet2_dast{
             void Tree_Creator_AUX(int *size_of_tree, int height_of_tree,int* remainder);
 
             int GetHeight(Node* node);
+
+            void calcAverage();
 
         };
 
@@ -135,6 +140,8 @@ namespace wet2_dast{
         T* ClosestFromAbove(const T& value) const;
 
         T* ClosestFromBelow(const T& value) const;
+
+        static double getNodeAverage(Node* ver);
 
     public:
         friend void combineTrees(AVLRankTree<T> &to_delete, AVLRankTree<T>& to_insert)
@@ -245,6 +252,8 @@ namespace wet2_dast{
 
         int between_to_places(const T& lower, const T& higher) const;
 
+        double getAverage(int num_of_objects) const;
+
     };
     static int max(int a, int b);
 
@@ -301,6 +310,14 @@ namespace wet2_dast{
             return NOT_EXIST;
         return node->height;
     }
+
+    template<class T>
+    void AVLRankTree<T>::Node::calcAverage()
+    {
+        average = ((getRank(left_son)* getNodeAverage(left_son) + getRank(right_son)* getNodeAverage(right_son)
+        + value->getLevel())/ (getRank(left_son) + getRank(right_son) + 1));
+    }
+
 
     template<class T>
     void AVLRankTree<T>::createEmptyTree(int size_of_tree)
@@ -464,6 +481,7 @@ namespace wet2_dast{
         {
             start->height = max(getHeight(start->right_son), getHeight(start->left_son)) + 1;
             start->rank = getRank(start->left_son) + getRank(start->right_son) + 1;
+            start->calcAverage();
             temp_father = start->father;
             if (balance(start) > -2 && balance(start) < 2)
             {
@@ -534,8 +552,10 @@ namespace wet2_dast{
         temp->father=temp_father;
         first_ubl->height = max(getHeight(first_ubl->left_son), getHeight(first_ubl->right_son)) + 1;
         first_ubl->rank = getRank(first_ubl->left_son) + getRank(first_ubl->right_son) + 1;
+        first_ubl->calcAverage();
         temp->height = max(getHeight(temp->left_son), getHeight(temp->right_son)) + 1;
         temp->rank = getRank(temp->left_son) + getRank(temp->right_son) + 1;
+        temp->calcAverage();
     }
 
     template<class T>
@@ -584,8 +604,10 @@ namespace wet2_dast{
         temp->father=temp_father;
         first_ubl->height = max(getHeight(first_ubl->left_son), getHeight(first_ubl->right_son))+1;
         first_ubl->rank = getRank(first_ubl->left_son) + getRank(first_ubl->right_son) + 1;
+        first_ubl->calcAverage();
         temp->height = max(getHeight(temp->left_son), getHeight(temp->right_son))+1;
         temp->rank = getRank(temp->left_son) + getRank(temp->right_son) + 1;
+        temp->calcAverage();
     }
 
     template<class T>
@@ -695,6 +717,7 @@ namespace wet2_dast{
         inorderIn(values, index, ver->left_son);
         ver->value = values[index++];
         inorderIn(values, index, ver->right_son);
+        ver->calcAverage();
     }
 
     template<class T>
@@ -885,6 +908,42 @@ namespace wet2_dast{
             temp = temp->right_son;
         }
         return nullptr;
+    }
+
+    template<class T>
+    double AVLRankTree<T>::getAverage(int num_of_objects) const
+    {
+        double current_average = 0;
+        Node* temp = root;
+        while(temp || num_of_objects == 0)
+        {
+            if (temp->rank == num_of_objects) // asserting that the rank of the node is always bigger or equal.
+                return temp->average;
+            if(temp->right_son)
+            {
+                if(temp->right_son->rank > num_of_objects)
+                {
+                    temp = temp->right_son;
+                    continue;
+                }
+                current_average += (temp->right_son->rank) * (temp->right_son->average);
+                num_of_objects -= temp->right_son->rank;
+                temp = temp->left_son;
+                continue;
+            }
+            current_average += temp->average;
+            num_of_objects -= 1;
+            temp = temp->left_son;
+        }
+        return current_average;
+    }
+
+    template<class T>
+    double AVLRankTree<T>::getNodeAverage(AVLRankTree::Node *ver)
+    {
+        if(!ver)
+            return 0;
+        return ver->average;
     }
 } //namespace wet2_dast
 

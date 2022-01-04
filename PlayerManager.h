@@ -30,7 +30,7 @@ namespace wet2_dast {
         StatusType getPercentOfPlayersWithScoreInBounds(int GroupID, int score, int lowerLevel,
                                                         int higherLevel, double* players);
         StatusType averageHighestPlayerLevelByGroup(int GroupID, int m, double* avgLevel);
-//        StatusType getPlayersBound(int GroupID, int score, int m, int * LowerBoundPlayers, int *HigherBoundPlayers);
+        StatusType getPlayersBound(int GroupID, int score, int m, int * LowerBoundPlayers, int *HigherBoundPlayers);
         ~PlayerManager() = default;
     };
 } //namespace wet2_dast
