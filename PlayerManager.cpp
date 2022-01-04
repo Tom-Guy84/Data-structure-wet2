@@ -12,17 +12,14 @@ namespace wet2_dast{
                                                  // all the groups in the structure
     }
 
-    PlayerManager *PlayerManager::Init(int k, int scale)
-    {
-        if(k<=0 || scale <= 0 || scale > 200)
+    PlayerManager *PlayerManager::PlayerManagerInit(int k, int scale) {
+        if (k <= 0 || scale <= 0 || scale > 200)
             return NULL;
-        try
-        {
-            auto* manager = new PlayerManager(k, scale);
+        try {
+            auto *manager = new PlayerManager(k, scale);
             return manager;
         }
-        catch (std::exception& e)
-        {
+        catch (std::exception &e) {
             return NULL;
         }
     }
