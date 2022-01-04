@@ -56,7 +56,7 @@ namespace wet2_dast {
         return Group_Id < other.Group_Id;
     }
 
-    Player* Group::findPlayer(int PlayerId) {
+    Player* Group::findPlayer(int PlayerId){
         return players.find_object(PlayerId);
     }
 
@@ -115,7 +115,7 @@ namespace wet2_dast {
         players_by_score.insert(*player_by_score);
     }
 
-    double Group::getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel)
+    double Group::getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel) const
     {
         Player lower_player_score(0 ,lowerLevel, Group_Id, true, score);
         Player higher_player_score(0, higherLevel + 1, Group_Id, true, score);
@@ -123,6 +123,16 @@ namespace wet2_dast {
         Player higher_player_level(0, higherLevel +1, Group_Id, false, score);
         return (((double)(players_by_score.between_to_places(lower_player_score, higher_player_score)))
         /players_by_level.between_to_places(lower_player_level, higher_player_level));
+    }
+
+    double Group::averageHighestPlayerLevel(int wanted_number_of_players) const
+    {
+        if(wanted_number_of_players > players_by_level.getSize())
+        {
+            return ((players_by_level.getSize()*players_by_level.getAverage(players_by_level.getSize()))
+                                                                     /(double)wanted_number_of_players);
+        }
+        return players_by_level.getAverage(wanted_number_of_players);
     }
 
 } //namespace wet2_dast
