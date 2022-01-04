@@ -69,7 +69,7 @@ namespace wet2_dast{
         //@ver - the current vertex we are looking at.
         //@val - the value we are looking for.
 
-        T *find_in_tree(Node *ver, const T &val, Node **loc, Node **father_of_loc)
+        T *find_in_tree(Node *ver, const T &val, Node **loc, Node **father_of_loc) const
         {
             if (*(ver->value) == val) //if we're in the location
             {
@@ -243,7 +243,7 @@ namespace wet2_dast{
 
         T* GetLowesValue();
 
-        int between_to_places(const T& lower, const T& higher);
+        int between_to_places(const T& lower, const T& higher) const;
 
     };
     static int max(int a, int b);
@@ -797,7 +797,7 @@ namespace wet2_dast{
     }
 
     template<class T>
-    int AVLRankTree<T>::between_to_places(const T& lower_value, const T& higher_value)
+    int AVLRankTree<T>::between_to_places(const T& lower_value, const T& higher_value) const
     {
         Node** location;
         Node** father;

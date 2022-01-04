@@ -49,18 +49,18 @@ namespace wet2_dast {
         auto *DS_OK = (PlayerManager *) DS;
         return DS_OK->averageHighestPlayerLevelByGroup(GroupID, m, level);
     }
-
-    StatusType
-    GetPlayersBound(void *DS, int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers) {
-        auto *DS_OK = (PlayerManager *) DS;
-        return DS_OK->getPlayersBound(GroupID, score, m, LowerBoundPlayers, HigherBoundPlayers);
-    }
+//
+//    StatusType
+//    GetPlayersBound(void *DS, int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers) {
+//        auto *DS_OK = (PlayerManager *) DS;
+//        return DS_OK->getPlayersBound(GroupID, score, m, LowerBoundPlayers, HigherBoundPlayers);
+//    }
     void Quit(void **DS) {
-        auto *DS_OK = (PlayerManager *) *DS;
+        auto DS_OK = (PlayerManager *) *DS;
         if (!DS) {
             return;
         }
-        DS_OK->Quit()
+        delete DS_OK;
         * DS = NULL;
 
     }

@@ -149,5 +149,23 @@ namespace wet2_dast{
         }
     }
 
+    StatusType PlayerManager::averageHighestPlayerLevelByGroup(int GroupID, int m, double *avgLevel)
+    {
+        if(GroupID < 0 || GroupID > num_of_groups || m <=0)
+            return INVALID_INPUT;
+        try
+        {
+            Group* group = groups->find(GroupID);
+            if(m > group->GetSize())
+                return FAILURE;
+            *avgLevel = group->averageHighestPlayerLevel(m);
+            return SUCCESS;
+        }
+        catch (std::exception& e)
+        {
+            return ALLOCATION_ERROR;
+        }
+    }
+
 
 } //namespace wet2_dast
