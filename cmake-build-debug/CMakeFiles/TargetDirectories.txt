@@ -1,3 +1,0 @@
-/mnt/c/Users/proje/CLionProjects/Data-structure-wet2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/proje/CLionProjects/Data-structure-wet2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/c/Users/proje/CLionProjects/Data-structure-wet2/cmake-build-debug/CMakeFiles/wet2.dir
