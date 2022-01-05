@@ -31,8 +31,8 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize 12
-\spacing onehalf
+\paperfontsize 10
+\spacing double
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -105,11 +105,19 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \end_layout
 
 \begin_layout Standard
-ראשית נתאר את מבנה הנתונים בו נשתמש בפתרון התרגיל: מבנה הנתונים מבנה 
+ראשית נתאר את מבנה הנתונים בו נשתמש בפתרון התרגיל: מבנה הנתונים 
+\begin_inset Formula $PlayerManager$
+\end_inset
+
+ אשר יחזיק מבנה 
 \begin_inset Formula $Union-Find$
 \end_inset
 
- של קבוצות כך שהקבוצה באינקס
+ של קבוצות בגדול 
+\begin_inset Formula $k+1$
+\end_inset
+
+ כך שהקבוצה באינקס
 \family roman
 \series medium
 \shape up
@@ -163,8 +171,66 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \uwave default
 \noun default
 \color inherit
-במבנה תהיה קבוצת כל השחקנים.
- עליה לא נפעיל את פעולת 
+במבנה תהיה קבוצת כל השחקנים, את כמות הקבוצות - k ואת 
+\begin_inset Formula $scale$
+\end_inset
+
+.
+ על קבוצה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+לא נפעיל את פעולת 
 \begin_inset Formula $mergeGroups$
 \end_inset
 
@@ -219,8 +285,36 @@ begin{adjustwidth*}{-3cm}{-3cm}
 0
 \numeric off
  הממויין לפי התוצאה, לאחר מכן הרמה ולבסוף המספר המזהה של השחקן, עץ דרגות
- נוסף של שחקנים הממויין לפי השלב ואז המספר המזהה ובנוסף תחזיק טבלת ערבול
- של כל השחקנים.
+ נוסף של שחקנים שרמתם אינה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+ ממויין לפי השלב ואז המספר המזהה ובנוסף תחזיק טבלת ערבול של כל השחקנים.
 \end_layout
 
 \begin_layout Standard
@@ -274,6 +368,13 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \end_inset
 
  של העץ להיות עץ דרגות אינו משנה את סיבוכיות הזמן והמקום של פעולות העץ.
+ מכיוון שהיעוד היחיד של העץ בתרגיל הוא לאחסון המשתתפים , לכל צומת בעץ תהיה
+ שמורה הרמה הממוצעת בתת העץ שצומת זו היא השורש שלו.
+ עדכון שדה זה קורה ע
+\begin_inset Quotes erd
+\end_inset
+
+י חישוב פשוט בדומה לדרגה או גובה צומת ולכן אינו משפיע על שיקולי סיבוכיות.
  סיבוכיות המקום של העץ היא 
 \begin_inset Formula $O(n)$
 \end_inset
@@ -286,7 +387,7 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \begin_inset Formula $Hash-Table$
 \end_inset
 
- בעלת פקטור עטמס של
+ בעלת פקטור עומס של
 \family roman
 \series medium
 \shape up
@@ -314,8 +415,46 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \noun default
 \color inherit
 1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
 \numeric off
-.
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הממומשת ע
+\begin_inset Quotes erd
+\end_inset
+
+י 
+\begin_inset Quotes eld
+\end_inset
+
+ערבול כפול
+\begin_inset Quotes erd
+\end_inset
+
+ - במידה ואיבר יותאם לתא כלשהו במערך אך התא תפוס, נבצע איטרציה נוספת ונמצא
+ לאיבר תא נוסף אליו הוא יותאם.
  הטבלה ממומשת כפי שנלמד בהרצאה כך שבכל תא יהיה איבר יחיד ובכך סיבוכיות הזמן
  הממוצעת על הקלט להכנסה
 \backslash
@@ -354,8 +493,64 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \noun default
 \color inherit
 2
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
 \numeric off
-, ולאחר מספר גדול של מחיקות ביחס לטבלה, נקצה טבלה חדשה ונוותר על הישנה ובה
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בקירוב, למספר הראשוני הראשון שקרוב לגודל הבטלה הנוכחי כפול
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+.
+ המטרה בכך היא לשמור על פונקציית הערבול ועל פקטור העמוס לפי הדרישות.
+ לאחר מספר גדול של מחיקות ביחס לטבלה, נקצה טבלה חדשה ונוותר על הישנה ובה
  דגלים שאינם רלוונטיים יותר לחיפוש איבר בתאים ריקים.
  סיבוכיות המקום של הטבלה היא 
 \begin_inset Formula $O(n)$
@@ -370,7 +565,11 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \begin_inset Formula $Union-Find$
 \end_inset
 
- שיאותחל לגודל k וישאר קבוע למשך כל ריצת התוכנית.
+ שיאותחל לגודל 
+\begin_inset Formula $k+1$
+\end_inset
+
+ וישאר קבוע למשך כל ריצת התוכנית.
  המבנה ימומש כפי שנלמד בהרצאה
 \family roman
 \series medium
@@ -500,11 +699,15 @@ addPlayer
 \series bold
 :
 \series default
- הפעולה תאתחל מבנה 
+ הפעולה תאתחל 
+\begin_inset Formula $PlayerManager$
+\end_inset
+
+ חדש ומבנה תאתחל את מבנה ה- 
 \begin_inset Formula $Union-Find$
 \end_inset
 
- ריק בגדול 
+ בגדול 
 \begin_inset Formula $k+1$
 \end_inset
 
@@ -513,15 +716,22 @@ addPlayer
 \end_inset
 
  הקבוצות.
- סיבוכיות הזמן של הפעולה היא 
-\begin_inset Formula $O(k)$
+ סיבוכיות הזמן של הפעולה זו היא 
+\begin_inset Formula $O(k+1)=\o k$
 \end_inset
 
- כי יצירת כל קבוצה היא ב- 
+ כי הפעולה יוצרת את כל הקבוצות ויצירת כל קבוצה היא ב- 
 \begin_inset Formula $O(1)$
 \end_inset
 
 .
+ הפעולה תחזיר את מנהל השחקנים החדש, בהנחה והקלט היה תקין וכי לא הייתה בעיה
+ בהקצאת זיכרון.
+ סיבוכיות הזמן הכוללת של היא 
+\begin_inset Formula $\o k$
+\end_inset
+
+כנדרש.
 \end_layout
 
 \begin_layout Enumerate
@@ -627,7 +837,7 @@ addPlayer
 \begin_inset Formula $O(n)$
 \end_inset
 
- בסיבוכיות משוערכת בממוצע על הקלט.
+ בממוצע.
  יש לשים לב בעת התייחסות לקבוצה שכבר אוחדה בעבר עם קבוצה אחרת, שחקני הקבוצה
  הם שחקני הקבוצות המאוחודת ואיחודה עם קבוצה נוספת יהיה איחוד של הקבוצה הנוספת
  אל הקבוצות שכבר אוחדו.
@@ -639,6 +849,8 @@ addPlayer
  אחת.
  אין דבר זה משפיע על סיבוכיות פעולות העצים וזה נועד על מנת לממש את המבנה
  בצורה היעילה ביותר.
+ במידה ושתי הקבוצות אותן רוצים לאחד כבר אוחדו בעבר הפעולה לא תעשה דבר.
+ במידה והקלט לא יהיה תקין או תהיה שגיאת זיכרון תוחזר שגיאה מתאימה.
  בסה
 \begin_inset Quotes erd
 \end_inset
@@ -683,16 +895,17 @@ addPlayer
 \begin_inset Formula $O(1)$
 \end_inset
 
- במשוערך בממוצע על הקלט, תמצא את קבוצות השחקן בסיבוכיות של 
+ בממוצע על הקלט, תמצא את קבוצות השחקן בסיבוכיות של 
 \begin_inset Formula $O(log^{*}k)$
 \end_inset
 
- במשוערך בממוצע על הקלט ותכניס אותו לטבלת שחקני הקבוצה, גם כן ב-
+ במשוערך ותכניס אותו לטבלת שחקני הקבוצה, גם כן ב-
 \begin_inset Formula $O(1)$
 \end_inset
 
- משוערך בממוצע על הקלט.
- סה
+ בממוצע על הקלט.
+ במידה והקלט לא יהיה תקין, השחקן כבר קיים או תהיה שגיאת זיכרון תוחזר שגיאה
+ מתאימה.סה
 \begin_inset Quotes erd
 \end_inset
 
@@ -728,7 +941,7 @@ addPlayer
 \begin_inset Formula $O(1)$
 \end_inset
 
- בממוצע(, משם תמצא את קבוצתו דרך השדה השמור אצלו במבנה ב-
+ בממוצע(, משם תמצא את קבוצתו דרך השדה השמור אצלו, תמצא את קבוצתו במבנה ה-
 \begin_inset Formula $Union-Find$
 \end_inset
 
@@ -736,7 +949,7 @@ addPlayer
 \begin_inset Formula $O(log^{*}k)$
 \end_inset
 
- בממוצע( ותסיר אותו מטבלת השחקנים בקבוצה )סיבוכיות משוערת 
+( ותסיר אותו מטבלת השחקנים בקבוצה )בסיבוכיות 
 \begin_inset Formula $O(1)$
 \end_inset
 
@@ -801,6 +1014,8 @@ addPlayer
 
  כאשר יש n איברים בעץ(.
  לבסוף הפעולה תסיר אותו מקבוצת כל השחקנים באותו האופן.
+ במידה והקלט לא יהיה תקין, השחקן לא קיים או תהיה שגיאת זיכרון תוחזר שגיאה
+ מתאימה.
  בסה
 \begin_inset Quotes erd
 \end_inset
@@ -840,8 +1055,7 @@ addPlayer
 \series bold
 : 
 \series default
-הפעולה תמצא את השחקן בקבוצת כל השחקנים )בטבלת הערבול בקבוצה, סיבוכיות משוערת
- 
+הפעולה תמצא את השחקן בקבוצת כל השחקנים )בטבלת הערבול בקבוצה, בסיבוכיות 
 \begin_inset Formula $O(1)$
 \end_inset
 
@@ -936,6 +1150,8 @@ addPlayer
  )בכך לא תיפגע בתקינות סדר האיברים בעץ ובדרגות הצמתים(.
  לאחר מכן היא תמצא את קבוצתו דרך השדה השמור אצל השחקן ותבצע את פעולה זו
  שוב באותו האופן רק בקבוצת השחקן ולא בקבוצת כל השחקנים.
+ במידה והקלט לא יהיה תקין, השחקן אינו קיים במערכת או תהיה שגיאת זיכרון תוחזר
+ שגיאה מתאימה.
  הסיבוכיות הכוללת של הפעולה נקבעת לפי מציאתו ועדכנו בטבלאות, בעצים ומציאת
  קבצתו במבנה הקבוצת ולכן היא בהס
 \begin_inset Quotes erd
@@ -972,8 +1188,7 @@ addPlayer
 \series bold
 : 
 \series default
-הפעולה תמצא את השחקן בקבוצת כל השחקנים )בטבלת הערבול בקבוצה, סיבוכיות משוערת
- 
+הפעולה תמצא את השחקן בקבוצת כל השחקנים )בטבלת הערבול בקבוצה, בסיבוכיות 
 \begin_inset Formula $O(1)$
 \end_inset
 
@@ -1010,6 +1225,8 @@ addPlayer
  מחדש )בכך לא תיפגע בתקינות סדר האיברים בעץ(.
  לאחר מכן היא תמצא את קבוצתו דרך השדה השמור אצל השחקן ותבצע את פעולה זו
  שוב באותו האופן רק בקבוצת השחקן ולא בקבוצת כל השחקנים.
+ במידה והקלט לא יהיה תקין, השחקן אינו קיים במערכת או תהיה שגיאת זיכרון תוחזר
+ שגיאה מתאימה.
  הסיבוכיות הכוללת של הפעולה נקבעת לפי מציאתו בטבלאות, בעצים, מציאת קבצתו
  במבנה הקבוצת ועדכון התאים במערך ולכן היא בהס
 \begin_inset Quotes erd
@@ -1027,11 +1244,19 @@ addPlayer
 \end_inset
 
 
-\begin_inset Formula $\boldsymbol{StatusType\,getPercentOfPlayersWithScoreInBounds(DS,\,GroupId,\,score,\,lowerLevel}$
+\begin_inset Formula $\boldsymbol{getPercentOfPlayersWithScoreInBounds(DS,\,GroupId,\,score,\,lowerLevel}$
 \end_inset
 
 
 \series bold
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\boldsymbol{StatusType}$
+\end_inset
+
 :
 \series default
  הפעולה תעבור על העץ הממויין תחילה לפי תוצאה, תמצא כמה שחקנים יש בתוצאה
@@ -1040,8 +1265,44 @@ addPlayer
  ורמתו הכי קרובה מלמטה לחסם העליון( כאשר את כמות השחקנים היא תחשב לפי דרגות
  הצמתים, תעשה אותה הפעולה בעץ הממויין רק לפי הרמה והמספר המזהה בו תקבל את
  כמות השחקנים הכוללת של השחקנים בין רמות אלה ותחזיר את היחס בין שתי הקבוצות.
+ במידה והקלט לא יהיה תקין, אין שחקנים בקבוצה בין רמות אלו או תהיה שגיאת
+ זיכרון תוחזר שגיאה מתאימה.
+ הפעולה תפעל על הקבוצה המבוקשת או קבוצת כל השחקנים - קבוצה מספר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, לפי הקלט.
  סיבוכיות הזמן הכוללת מתבטאת בחיפוש הקבוצה הרלוונטית ובה חיפוש של ארבעה
- איברים שונים בעצים וחישוב אמפירי ולכן בסה
+ איברים שונים בעצים כאשר מציאת כל אחד מהם היא ב-
+\begin_inset Formula $\o{log(n)}$
+\end_inset
+
+ וחישוב אמפירי ולכן בסה
 \begin_inset Quotes erd
 \end_inset
 
@@ -1080,26 +1341,18 @@ addPlayer
 \series bold
 : 
 \series default
-פעולה זו תשתמש בשדה נוסף שיהיה שמור לצורך נוחיות העבודה אצל המחלקה 
-\begin_inset Quotes eld
-\end_inset
-
-שחקן
-\begin_inset Quotes erd
-\end_inset
-
- ובה יהיה שמור משתנה מסוג 
+פעולה זו תשתמש בשדה נוסף מסוג 
 \begin_inset Formula $double$
 \end_inset
 
-.
+ שיהיה שמור בכל צומת בעץ.
  הפעולה תרוץ על השחקנים הממויין לפי רמתם, כאשר תתחיל מהשורש ותחפש בתת העץ
  הימני כל פעם את הצומת בה כמות הצמתים )השחקנים( בתת העץ הנוכחי היא בדיוק
  הכמות של השחקנים הטובים ביותר )שרמתם הגבוהה ביותר( להם נרצה לחשב את הממוצע.
- השדה הנוסף של השחקן יחזיק את ממוצע השחקנים שנמצאים בתת העץ שהצומת כאשר
- הצומת בה הוא נמצא היא השורש.
+ השדה הנוסף של הצומת יחזיק את ממוצע השחקנים שנמצאים בתת העץ כאשר צומת זו
+ היא השורש.
  במידה לא קיימת צומת המחזיקה את המספר המדויק של השחקנים אותו נרצה לחשב,
- נמצא את האבא שלה )בהנחה שהצומת אינה השורש כי אז הדרישה היא על כמות שחקנים
+ נמצא את אבא שלה )בהנחה שהצומת אינה השורש כי אז הדרישה היא על כמות שחקנים
  הגודלה מזו שבעץ, במקרה זה נשתמש גם בשחקנים שרמתם
 \family roman
 \series medium
@@ -1155,10 +1408,15 @@ addPlayer
 \noun default
 \color inherit
 ובמידה וגם אז לא יהיו מספיק שחקנים בקבוצה תוחזר שגיאה(.
- ממנו, נרד לבן הימני, נחשב את סכום הדרגות הכולל שם ונספור כמה שחקנים עברנו,
- אחר כך נלך לתת העץ השמאלי שלו ונתחיל את החיפוש מההתחלה כאשר השורש הוא הצומת
- בה אנו נמצאים כרגע )הבן השמאלי של האבא( וכומת השחקנים היא הכמות שחיפשנו
- בהתחלה פחות כמה שהיו בתת העץ השמאלי.
+ ממנו, נרד לבן הימני, נחשב את סכום הדרגות הכולל שם )ע
+\begin_inset Quotes erd
+\end_inset
+
+י הכפלת הדרגה הממוצעת השמורה בו כפול גודל תת העץ שהשורש שלו הוא הבן הימני(
+ ונספור כמה שחקנים עברנו - כאלה שהיו בתת העץ הימני, אחר כך נלך לתת העץ השמאלי
+ שלו ונתחיל את החיפוש מההתחלה כאשר השורש הוא הצומת בה אנו נמצאים כרגע )הבן
+ השמאלי של האבא( וכומת השחקנים היא הכמות שחיפשנו בהתחלה פחות כמה שהיו בתת
+ העץ הימני.
  
 \series bold
 לדוגמה
@@ -1187,11 +1445,11 @@ addPlayer
 6
 \numeric off
 .
- אז נולך לבן הימני, לוקח את הממוצע שיש בו, נכפיל ב-
+ אז נלך לבן הימני, נקח את הממוצע שיש בו, נכפיל ב-
 \numeric on
 6
 \numeric off
-, חוזר לאבא, הולך ממנו שמאלה ואז ימינה עד הסוף ומחפש צומת עם 
+, נחזור לאבא, נלך ממנו שמאלה ואז ימינה עד הסוף ונחפש צומת עם 
 \numeric on
 3
 \numeric off
@@ -1204,25 +1462,49 @@ addPlayer
 \numeric on
 2
 \numeric off
-, נחוזר על התהליך.
+, נחזור על התהליך.
 \begin_inset Newline newline
 \end_inset
 
-עדכון העץ יבוצע בכל פעם שנעלה את רמתו של שחקן, הכנסה ראשונית מבוצעת בפעם
+עדכון העץ יבוצע בכל פעם שנעלה את רמתו של שחקן והכנסה ראשונית מבוצעת בפעם
  הראשונה שמעלים את רמתו מ-
 \numeric on
 0
 \numeric off
 .
- בעץ כן יהיו שחקנים, שימוינו לפי הרמה, ודרגת העץ היא תהיה 
-\begin_inset Quotes eld
-\end_inset
-
-האיבר המיוחד
-\begin_inset Quotes erd
-\end_inset
-
- בו.
+ בעץ השחקנים ימוינו לפי הרמה.
+ במידה והקלט לא יהיה תקין, יש בקבוצה פחות שחקנים מאשר הכמות לה אנו מתבקשים
+ לחשב ממוצע או תהיה שגיאת זיכרון תוחזר שגיאה מתאימה.
+ הפעולה תפעל על הקבוצה המבוקשת או קבוצת כל השחקנים - קבוצה מספר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, לפי הקלט.
  סה
 \begin_inset Quotes erd
 \end_inset
@@ -1290,15 +1572,328 @@ addPlayer
 \series bold
 :
 \series default
+ הפעולה תקרא להורס הדיפולטיבי של 
+\begin_inset Formula $PlayerManager$
+\end_inset
 
-\begin_inset Newpage pagebreak
+ שבתורו יקרא להורסים הדיפולטיביים של כל שאר המבנים במימוש, כאשר כל אחד מהם
+ מוחק את הזיכרון שמוחזק בו.
+ בגלל שסיבוכיות הזיכרון במבנה היא 
+\begin_inset Formula $\o{n+k}$
+\end_inset
+
+)נסביר בהמשך( פעולה זו תפעל בסיבוכיות זו כנדרש.
+\end_layout
+
+\begin_layout Standard
+חישוב הסיבוכיות המשוערכת:
+\end_layout
+
+\begin_layout Enumerate
+חישוב סיבוכיות הזמן המשוערכת הנוגעת לחלק שנובע ממספר הקבוצות - 
+\begin_inset Formula $k$
+\end_inset
+
+, של הפעולות:
+\begin_inset Formula 
+\[
+\begin{array}{c}
+averageHighestPlayerLevelByGroup,\,mergeGroups,\,increasePlayerIDLevel,\,changePlayerIDScore,\\
+getPercentOfPlayersWithScoreInBounds,\,removePlayer,\,addPlayer,\,getPlayersBound
+\end{array}
+\]
+
 \end_inset
 
 
-\begin_inset Newpage pagebreak
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+בפעולות אלה, סיבוכיות הזמן היא כפי שהוצגה מעלה ועומדת בדרישות מכיוון שאנו
+ נסמכים על כך )והמימוש תומך בכך( שפעולת 
+\begin_inset Formula $find$
+\end_inset
+
+ במבנה 
+\begin_inset Formula $Union-Find$
+\end_inset
+
+ היא בסיבוכיות משוערכת של 
+\begin_inset Formula $\o{log^{*}k}$
+\end_inset
+
+.
+ במימוש שלנו, בניגוד למה שרואים בהרצאות או בתרגול, במקום לשלוח לפעולת 
+\begin_inset Formula $Union$
+\end_inset
+
+ שתי קבוצות לאחר שהשתמשנו פעמיים בפעולת 
+\begin_inset Formula $find$
+\end_inset
+
+, הפעולה עצמה קוראת ל-
+\begin_inset Formula $find$
+\end_inset
+
+.
+ לכן כדי לעמוד בדרישות הסיבוכיות האלו, עלינו לדאוג לכך שהמבנה באמת ישתמש
+ בעצים הפוכים, יאחד לפי גודל )כן מבוצע בפעולת ה-
+\begin_inset Formula $Union$
+\end_inset
+
+( ויכווץ מסלולים )אשר מתבצע בפעולת ה-
+\begin_inset Formula $find$
+\end_inset
+
+(.
+ לכן בסה
+\begin_inset Quotes erd
+\end_inset
+
+כ, הסיבוכיות המשוערכת היא אכן 
+\begin_inset Formula $\o{t*log^{*}k+t*f(n)}$
+\end_inset
+
+ כאשר 
+\begin_inset Formula $f(n)$
+\end_inset
+
+ תלויה בכמות השחקנים בלבד, כנדרש.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+כמו גם את חישוב הסיבוכיות המשוערכת הנוגעת לחלק של מספר השחקנים - 
+\begin_inset Formula $n$
+\end_inset
+
+, של הפעולות: 
+\begin_inset Formula 
+\[
+\begin{array}{c}
+removePlayer,\,increasePlayerLevel,\,changePlayerIDScore\\
+addPlayer
+\end{array}
+\]
+
 \end_inset
 
 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+בפעולות אלה, סיבוכיות הזמן המתייחסת לחלק של השחקנים תלויה בשני דברים:
+\end_layout
+
+\begin_layout Enumerate
+פעולות על העצים )מציאה, הכנסה והסרה( אשר מתבצעות בסיבוכיות של 
+\begin_inset Formula $\o{log(n)}$
+\end_inset
+
+במקרה הגרוע ולכן גם במשוערך.
+\end_layout
+
+\begin_layout Enumerate
+מציאת שחקנים
+\backslash
+הסרתם מטבלת הערבול.
+ ראינו בהרצאות שהסיבוכיות הממוצעת לפעולות הכנסה, הוצאה ומציאה היא ב-
+\begin_inset Formula $\o 1$
+\end_inset
+
+ושהסיבוכיות המשוערכת היא על כן ב-
+\begin_inset Formula $O(1)$
+\end_inset
+
+ גם כן.
+ 
+\end_layout
+
+\begin_layout Standard
+לכן בסה
+\begin_inset Quotes erd
+\end_inset
+
+כ, הסיבוכיות של פעולות אלה תהיה 
+\begin_inset Formula $\o{f(k)+t_{1}*log(n)+t_{2}}$
+\end_inset
+
+כאשר 
+\begin_inset Formula $f(k)$
+\end_inset
+
+ תלוי רק במספר הקבוצות, 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+ זו כמות הפעולות הכוללת של רצף הפעולות 
+\begin_inset Formula $removePlayer,\,increasePlayerLevel,\,changePlayerIDScore$
+\end_inset
+
+ כי הן אלה הפועלות על העץ ו-
+\begin_inset Formula $addPlayer$
+\end_inset
+
+ אינה פועלת על העץ ומבצועת 
+\begin_inset Formula $t_{2}$
+\end_inset
+
+ פעמים.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+סיבוכיות המקום הכוללת של מבנה הנתונים מתבטאת בדברים הבאים:
+\end_layout
+
+\begin_layout Enumerate
+החזקת מבנה ה-
+\begin_inset Formula $Union-Find$
+\end_inset
+
+ בגדול 
+\begin_inset Formula $k+1$
+\end_inset
+
+ של קבוצות.
+ סיבוכיות המקום של מבנה זה היא 
+\begin_inset Formula $\o{k+1}=\o k$
+\end_inset
+
+כאשר אאת סיבוכיות המקום הנוספת לכל קבוצה נסכום בנפרד.
+\end_layout
+
+\begin_layout Enumerate
+כל קבוצה מחזיקה שני עצים של שחקנים שרמתם אינה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+ וטבלת ערבול ובה כל השחקנים.
+ לכן, סיבכויות המקום של כמות השחקנים בכל קבוצה חסומה מלמעלה ע
+\begin_inset Quotes erd
+\end_inset
+
+י
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $3n$
+\end_inset
+
+ כאשר n זוהי כמות השחקנים בקבוצה )כפול כמות המקום הקבועה הנשמרת עבור כל
+ שחקן(.
+ בסה
+\begin_inset Quotes erd
+\end_inset
+
+כ, מכיוון שבכל k הקבוצות יחד יש אותה כמות שחקנים כמו בקבוצה מספר 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+- קבוצת כל החשקנים, סה
+\begin_inset Quotes erd
+\end_inset
+
+כ, סיבוכיות המקום עבור השחקנים חסומה ע
+\begin_inset Quotes erd
+\end_inset
+
+י 
+\begin_inset Formula $\o{6n}=\o n$
+\end_inset
+
+.
+ רק נזכיר כי סיבוכיות המקום הכוללת של העצים וטבלת העירבול היא 
+\begin_inset Formula $\o n$
+\end_inset
+
+כאשר n זוהי כמות האיברים במבנה.
+\end_layout
+
+\begin_layout Standard
+לכן בסה
+\begin_inset Quotes erd
+\end_inset
+
+כ, סיבוכיות המקום הכוללת של מבנה הנתונים היא 
+\begin_inset Formula $O(k+n)$
+\end_inset
+
+ כנדרש.
 \end_layout
 
 \begin_layout Standard
