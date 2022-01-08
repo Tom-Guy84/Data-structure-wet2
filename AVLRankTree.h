@@ -66,6 +66,8 @@ namespace wet2_dast{
 
             void calcAverage();
 
+            void calcRank(Node* ver);
+
         };
 
         Node *root; //belongs to AVLRankTree
@@ -129,6 +131,8 @@ namespace wet2_dast{
 
         void inorderIn(T* values[] , int &index, Node *ver);
 
+        void postOrderFix(Node* ver);
+
         void createEmptyTree(int size_of_tree);
 
         static void postOrderDelete(Node* ver, bool delete_values);
@@ -142,6 +146,8 @@ namespace wet2_dast{
         T* ClosestFromBelow(const T& value) const;
 
         static double getNodeAverage(Node* ver);
+
+        void calcRank(Node* ver);
 
     public:
         friend void combineTrees(AVLRankTree<T> &to_delete, AVLRankTree<T>& to_insert)
@@ -192,6 +198,7 @@ namespace wet2_dast{
             to_insert.createEmptyTree(full_size);
             int index = 0;
             to_insert.inorderIn(all_players, index ,to_insert.root);
+            to_insert.postOrderFix(to_insert.root);
             to_insert.size = full_size;
             delete[] all_players;
             T** empty_values = new T*[to_delete.size];
@@ -305,7 +312,7 @@ namespace wet2_dast{
         if (right_son!=nullptr)
             right_son->father = this;
         this->height = max(GetHeight(this->left_son), GetHeight(this->right_son))+1;
-        rank = getRank(left_son) + getRank(right_son) + 1;
+        calcRank(this);
     }
 
     template<class T>
@@ -320,6 +327,12 @@ namespace wet2_dast{
     {
         average = ((getRank(left_son)* getNodeAverage(left_son) + getRank(right_son)* getNodeAverage(right_son)
         + value->getLevel())/ (getRank(left_son) + getRank(right_son) + 1));
+    }
+
+    template<class T>
+    void AVLRankTree<T>::Node::calcRank(AVLRankTree::Node *ver)
+    {
+        ver->rank = getRank(ver->left_son) + getRank(ver->right_son) + 1;
     }
 
 
@@ -338,7 +351,7 @@ namespace wet2_dast{
         root= new Node();
         root->height = height_of_new_tree;
         root->rank = size_of_tree;
-        root->Tree_Creator_AUX(&size_of_tree, height_of_new_tree -1,remainder);//memory allocation?what do we do with it? :)
+        root->Tree_Creator_AUX(&size_of_tree, height_of_new_tree -1,remainder);
         delete remainder;
     }
 
@@ -474,6 +487,8 @@ namespace wet2_dast{
         temp->value = loc->value; //location value.
         loc->value = temp_value; //
         *place = temp;
+        calcRank(temp);
+        calcRank(temp);
     }
 
 
@@ -484,7 +499,7 @@ namespace wet2_dast{
         while (start)
         {
             start->height = max(getHeight(start->right_son), getHeight(start->left_son)) + 1;
-            start->rank = getRank(start->left_son) + getRank(start->right_son) + 1;
+            calcRank(start);
             start->calcAverage();
             temp_father = start->father;
             if (balance(start) > -2 && balance(start) < 2)
@@ -555,10 +570,10 @@ namespace wet2_dast{
         first_ubl->father=temp;
         temp->father=temp_father;
         first_ubl->height = max(getHeight(first_ubl->left_son), getHeight(first_ubl->right_son)) + 1;
-        first_ubl->rank = getRank(first_ubl->left_son) + getRank(first_ubl->right_son) + 1;
+        calcRank(first_ubl);
         first_ubl->calcAverage();
         temp->height = max(getHeight(temp->left_son), getHeight(temp->right_son)) + 1;
-        temp->rank = getRank(temp->left_son) + getRank(temp->right_son) + 1;
+        calcRank(temp);
         temp->calcAverage();
     }
 
@@ -607,10 +622,10 @@ namespace wet2_dast{
         first_ubl->father=temp;
         temp->father=temp_father;
         first_ubl->height = max(getHeight(first_ubl->left_son), getHeight(first_ubl->right_son))+1;
-        first_ubl->rank = getRank(first_ubl->left_son) + getRank(first_ubl->right_son) + 1;
+        calcRank(first_ubl);
         first_ubl->calcAverage();
         temp->height = max(getHeight(temp->left_son), getHeight(temp->right_son))+1;
-        temp->rank = getRank(temp->left_son) + getRank(temp->right_son) + 1;
+        calcRank(temp);
         temp->calcAverage();
     }
 
@@ -840,7 +855,7 @@ namespace wet2_dast{
         if(!higher)
             higher = ClosestFromBelow(higher_value);
         if(!higher || !lower)
-            throw AVLRankTree<T>::exceptions();
+            return 0;
         return (findIndex(higher)-findIndex(lower)+1);
     }
 
@@ -859,8 +874,8 @@ namespace wet2_dast{
                 temp = temp->left_son;
                 continue;
             }
-            temp = temp->right_son;
             index += getRank(temp->left_son) + 1;
+            temp = temp->right_son;
         }
         return (index + getRank(ver->left_son) + 1);
     }
@@ -928,7 +943,10 @@ namespace wet2_dast{
     template<class T>
     double AVLRankTree<T>::getAverage(int num_of_objects) const
     {
+        if(num_of_objects == 0)
+            return 0;
         double current_average = 0;
+        int num_to_div = num_of_objects;
         Node* temp = root;
         while(temp && num_of_objects != 0)
         {
@@ -943,14 +961,20 @@ namespace wet2_dast{
                 }
                 current_average += (temp->right_son->rank) * (temp->right_son->average);
                 num_of_objects -= temp->right_son->rank;
+                if(num_of_objects != 0)
+                {
+                    current_average += temp->value->getLevel();
+                    num_of_objects -= 1;
+                }
                 temp = temp->left_son;
+
                 continue;
             }
-            current_average += temp->average;
             num_of_objects -= 1;
+            current_average += temp->value->getLevel();
             temp = temp->left_son;
         }
-        return current_average;
+        return current_average/(double)num_to_div;
     }
 
     template<class T>
@@ -959,6 +983,22 @@ namespace wet2_dast{
         if(!ver)
             return 0;
         return ver->average;
+    }
+
+    template<class T>
+    void AVLRankTree<T>::calcRank(AVLRankTree::Node *ver)
+    {
+        ver->rank = getRank(ver->left_son) + getRank(ver->right_son) + 1;
+    }
+
+    template<class T>
+    void AVLRankTree<T>::postOrderFix(AVLRankTree::Node *ver)
+    {
+        if(!ver)
+            return;
+        postOrderFix(ver->left_son);
+        postOrderFix(ver->right_son);
+        calcRank(ver);
     }
 } //namespace wet2_dast
 

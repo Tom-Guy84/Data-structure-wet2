@@ -156,8 +156,8 @@ namespace wet2_dast {
                     + amount_level_zero;
             if(total_players_in_bounds == 0)
                 throw exceptions();
-            double amount_wanted = players_by_score.between_to_places(lower_player_score, higher_player_score)
-                    + scores[score];
+            double amount_wanted = players_by_score.between_to_places(lower_player_score, higher_player_score);
+            amount_wanted += scores[score];
             return (100*amount_wanted/total_players_in_bounds);
         }
         Player lower_player_score(0 ,lowerLevel, Group_Id, true, score);
