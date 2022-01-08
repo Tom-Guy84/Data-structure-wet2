@@ -24,38 +24,44 @@ int main() {
    try {
        b.insert_object(num_4,4);
    }
-    catch(std::exception& e)
-    {
-        std::cout<<"got 'em"<<std::endl;
+    catch(std::exception& e) {
+        std::cout << "got 'em" << std::endl;
     }
-   a.print_array();
-   b.print_array();
-   Union(a,b);
-   assert(a.find_object(1) !=nullptr);
-   assert(a.find_object(2) !=nullptr);
-   assert(a.find_object(3) !=nullptr);
-   assert(a.find_object(4) !=nullptr);
-   assert(b.find_object(1) ==nullptr);
-   assert(b.find_object(2) ==nullptr);
-   assert(b.find_object(3) ==nullptr);
-   assert(b.find_object(4) ==nullptr);
     a.print_array();
     b.print_array();
-   Union(b,a);
-   a.print_array();
-   b.print_array();
-    assert(b.find_object(1) !=nullptr);
-    assert(b.find_object(2) !=nullptr);
-    assert(b.find_object(3) !=nullptr);
-    assert(b.find_object(4) !=nullptr);
-    assert(a.find_object(1) ==nullptr);
-    assert(a.find_object(2) ==nullptr);
-    assert(a.find_object(3) ==nullptr);
-    assert(a.find_object(4) ==nullptr);
-    delete num_1;
-    delete num_2;
-    delete num_3;
-    delete num_4;
+    Union(a, b);
+    assert(a.find_object(1) != nullptr);
+    assert(a.find_object(2) != nullptr);
+    assert(a.find_object(3) != nullptr);
+    assert(a.find_object(4) != nullptr);
+    try {
+        assert(b.find_object(1) == nullptr);
+        assert(b.find_object(2) == nullptr);
+        assert(b.find_object(3) == nullptr);
+        assert(b.find_object(4) == nullptr);
+    }
+    catch (HashTable<int>::exceptions &e) {
+        std::cout << "???" << std::endl;
+    }
+
+    a.print_array();
+    b.print_array();
+    Union(b, a);
+    a.print_array();
+    b.print_array();
+    assert(b.find_object(1) != nullptr);
+    assert(b.find_object(2) != nullptr);
+    assert(b.find_object(3) != nullptr);
+    assert(b.find_object(4) != nullptr);
+    try {
+        assert(a.find_object(1) == nullptr);
+        assert(a.find_object(2) == nullptr);
+        assert(a.find_object(3) == nullptr);
+        assert(a.find_object(4) == nullptr);
+    }
+    catch (HashTable<int>::exceptions &e) {
+        std::cout << "???" << std::endl;
+    }
     delete num_5;
     return 0;
 

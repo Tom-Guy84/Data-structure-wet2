@@ -49,9 +49,10 @@ namespace wet2_dast{
     {
         if(PlayerID <= 0 || GroupID <= 0 || GroupID > num_of_groups || score <=0 || score > scale)
             return INVALID_INPUT;
+        auto *player = new Player(PlayerID, 0, GroupID, true, score);
         try
         {
-            auto* player = new Player(PlayerID, 0, GroupID, true, score);
+
             Group* group = groups->find(0);
             group->AddPlayer(*player);
             auto* player_in_group = new Player(PlayerID, 0, GroupID, true, score);
@@ -61,6 +62,7 @@ namespace wet2_dast{
         }
         catch (HashTable<Player>::exceptions& e)
         {
+            delete player;
             return FAILURE;
         }
         catch (std::exception& e)

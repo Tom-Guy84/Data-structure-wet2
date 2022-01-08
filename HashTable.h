@@ -93,6 +93,8 @@ namespace wet2_dast {
         ~HashTable();
 
         class exceptions : public std::exception {
+        public:
+            ~exceptions() = default;
         };
     };
 
@@ -113,7 +115,9 @@ namespace wet2_dast {
         for(int i=0; i<size; i++)
         {
             if((hash_table_array + i))
+
                 delete (hash_table_array+i)->getObject();
+
         }
         delete[] hash_table_array;
     }
@@ -198,7 +202,6 @@ namespace wet2_dast {
             //if current object, is either nullptr(assume we always start with nullptr when we don't insert anything ) or it can't be inserted(meaning we have value there that we need to move)
             if (temp[i].getObject() != nullptr || (temp[i].CanInsert() == false)) {
                 int hash_key = find_object_aux(true, temp[i].getKey());
-
                 hash_table_array[hash_key] = temp[i];
                 hash_table_array[hash_key].change_insertion_status(false);
                 current_objects_count++;
@@ -257,11 +260,12 @@ namespace wet2_dast {
 
         int hashed_key = (find_object_aux(false, key));
         if (hashed_key == NOT_FOUND) {
-            std::cout<<"remove didn't found anything"<<std::endl;
             return;
         }
         hash_table_array[hashed_key].change_insertion_status(true);
+        T *temp = hash_table_array[hashed_key].getObject();
         hash_table_array[hashed_key].setObject(nullptr);
+        delete temp;
         current_objects_count--;
         if (current_objects_count <= size / 4) {
             resize(size / 2);
@@ -323,21 +327,6 @@ namespace wet2_dast {
         }
         return (counter == 2);
     }
-
-    template<class T>
-    void HashTable<T>::print_array() {
-        std::cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<std::endl;
-        for (int i = 0; i < size; i++)
-            if (hash_table_array[i].getObject() == nullptr) {
-                std::cout << "array index : " << i << " null value " << std::endl;
-            } else {
-                std::cout << "array index : " << i << " ,object key : " << this->hash_table_array[i].getKey()
-                          << ", object value : "
-                          << *(hash_table_array[i].getObject()) << std::endl;
-            }
-        std::cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<std::endl;
-    }
-
     template<class T>
     T *HashTable<T>::find_object( int key) {
 //        assert(key>=0 );//finding nullptr object from outside isn't allowed.nor using negative key.

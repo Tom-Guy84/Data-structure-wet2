@@ -79,8 +79,9 @@ namespace wet2_dast {
 
         if(player->getLevel() == 0)
         {
-            players.delete_object(player_id);
             scores[player->getScore()]--;
+            players.delete_object(player_id);
+
             return;
         }
         Player* player_by_level = player->createPlayerByLevel();
