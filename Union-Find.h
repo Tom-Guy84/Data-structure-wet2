@@ -71,7 +71,7 @@ void Union_Find<T>::Union(int item_1, int item_2)
     Node* item_2_location = find_aux(item_2);
     if(item_1_location->object==item_2_location->object) {
         return;
-    } //change here. ziv.
+    }
     if(item_1_location->size_of_group <= item_2_location->size_of_group)
     {
         merge(item_1_location->object, item_2_location->object); //merge is T method

@@ -51,12 +51,12 @@ namespace wet2_dast{
             return INVALID_INPUT;
         try
         {
-            auto* player_in_group = new Player(PlayerID, 0, GroupID, true, score);
-            Group* players_group = groups->find(GroupID);
-            players_group->AddPlayer(*player_in_group);
             auto* player = new Player(PlayerID, 0, GroupID, true, score);
             Group* group = groups->find(0);
             group->AddPlayer(*player);
+            auto* player_in_group = new Player(PlayerID, 0, GroupID, true, score);
+            Group* players_group = groups->find(GroupID);
+            players_group->AddPlayer(*player_in_group);
             return SUCCESS;
         }
         catch (HashTable<Player>::exceptions& e)
@@ -151,6 +151,10 @@ namespace wet2_dast{
         {
             return FAILURE;
         }
+        catch (Group::exceptions&  e)
+        {
+            return FAILURE;
+        }
         catch (std::exception& e)
         {
             return ALLOCATION_ERROR;
@@ -179,6 +183,11 @@ namespace wet2_dast{
     PlayerManager::getPlayersBound(int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers)
     {
         return FAILURE;
+    }
+
+    PlayerManager::~PlayerManager()
+    {
+        delete groups;
     }
 
 

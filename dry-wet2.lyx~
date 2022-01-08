@@ -314,10 +314,34 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \color inherit
 0
 \numeric off
- ממויין לפי השלב ואז המספר המזהה, טבלת ערבול של כל השחקנים 
-\series bold
-ומערך היסטוגרמות של התוצאה של שחקנים שרמתם 
+ ממויין לפי השלב ואז המספר המזהה, טבלת ערבול של כל השחקנים ומערך היסטוגרמות
+ של התוצאה של שחקנים שרמתם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
 \numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 0
 \numeric off
 .

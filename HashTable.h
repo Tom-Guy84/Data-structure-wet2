@@ -110,6 +110,11 @@ namespace wet2_dast {
 
     template<class T>
     HashTable<T>::~HashTable() {
+        for(int i=0; i<size; i++)
+        {
+            if((hash_table_array + i))
+                delete (hash_table_array+i)->getObject();
+        }
         delete[] hash_table_array;
     }
 
@@ -170,7 +175,6 @@ namespace wet2_dast {
     void HashTable<T>::array_object::setObject(T *object) {
         this->object = object;
     }
-
 
     template<class T>
 //**changes the size,and copies all objects that were in the old hash table.
@@ -336,20 +340,19 @@ namespace wet2_dast {
 
     template<class T>
     T *HashTable<T>::find_object( int key) {
-        assert(key>=0 );//finding nullptr object from outside isn't allowed.nor using negative key.
+//        assert(key>=0 );//finding nullptr object from outside isn't allowed.nor using negative key.
         int hashed_key=this->find_object_aux(false,key);
         T* to_return;
         if(hashed_key==NOT_FOUND) {
-            to_return= nullptr;
+            throw exceptions();
         }
         else
         {
-             assert(hashed_key>=0);//if this assert fails,it means we've found negative index.
+//             assert(hashed_key>=0);//if this assert fails,it means we've found negative index.
              to_return=hash_table_array[hashed_key].getObject();
         }
         return to_return;
     }
-
 
 }
 #endif //HASHTABLE_HASHTABLE_H

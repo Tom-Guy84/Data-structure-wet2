@@ -314,13 +314,7 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \color inherit
 0
 \numeric off
- ממויין לפי השלב ואז המספר המזהה, טבלת ערבול של כל השחקנים 
-\series bold
-ומערך היסטוגרמות של התוצאה של שחקנים שרמתם 
-\numeric on
-0
-\numeric off
-.
+ ממויין לפי השלב ואז המספר המזהה, טבלת ערבול של כל השחקנים.
 \end_layout
 
 \begin_layout Standard

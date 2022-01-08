@@ -16,11 +16,12 @@ namespace wet2_dast {
         AVLRankTree<Player> players_by_score;
         AVLRankTree<Player> players_by_level;
         HashTable<Player> players;
+        int* scores;
         int size;
     public:
         explicit Group(int Group_id);
         Group();
-        ~Group() = default;
+        ~Group();
         Group(const Group &group) =delete;
         Group& operator=(const Group &other)=delete ;
         bool operator==(const Group &group) const;
@@ -35,6 +36,7 @@ namespace wet2_dast {
         Player ** getPlayersByLevel();
         double getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel) const;
         double averageHighestPlayerLevel(int wanted_number_of_players) const;
+    class exceptions : public std::exception{};
     };
 
 

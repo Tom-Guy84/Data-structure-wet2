@@ -40,7 +40,7 @@ namespace wet2_dast {
 
         StatusType getPlayersBound(int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers);
 
-        ~PlayerManager() = default;
+        ~PlayerManager();
     };
 } //namespace wet2_dast
 

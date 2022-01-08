@@ -7,14 +7,8 @@ namespace wet2_dast
     Player::Player(int player_id, int level, int group = 0, bool sort_by_score = true, int score=0) :
             group(group), sort_by_score(sort_by_score), score(score)
     {
-        if (player_id > 0 && level >= 0)
-        {
-            this->player_id = player_id;
-            this->level = level;
-        } else
-        {
-            throw InvalidIdentifiers();
-        }
+        this->player_id = player_id;
+        this->level = level;
     }
 
     void Player::setLevel(int level_to_set)

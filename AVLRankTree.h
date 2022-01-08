@@ -146,6 +146,10 @@ namespace wet2_dast{
     public:
         friend void combineTrees(AVLRankTree<T> &to_delete, AVLRankTree<T>& to_insert)
         {
+            if(to_delete.size == 0)
+            {
+                return;
+            }
             T** array_to_insert=to_insert.inorderOut(to_insert.size);
             T** array_to_delete = to_delete.inorderOut(to_delete.size);
             T** all_players = new T*[to_insert.size + to_delete.size];
@@ -637,7 +641,7 @@ namespace wet2_dast{
         if (find_in_tree(root, val, &loc, &father_of_loc))
         {
 
-            throw ItemExist();
+            throw exceptions();
         }
 
         if (val <= *(father_of_loc->value))
@@ -656,13 +660,15 @@ namespace wet2_dast{
     template<class T>
     void AVLRankTree<T>::remove(const T &val)
     {
+        if(size == 0)
+            throw exceptions();
         Node *loc;
         Node *father_of_loc;
         Node *ver;
         T* value = find_in_tree(root, val, &loc, &father_of_loc);
         if (!value)
         {
-            throw ItemNotExist();
+            throw exceptions();
         }
         size--;
         if (loc == root)
@@ -717,7 +723,8 @@ namespace wet2_dast{
         inorderIn(values, index, ver->left_son);
         ver->value = values[index++];
         inorderIn(values, index, ver->right_son);
-        ver->calcAverage();
+        if(ver->value)
+            ver->calcAverage();
     }
 
     template<class T>
@@ -822,12 +829,14 @@ namespace wet2_dast{
     template<class T>
     int AVLRankTree<T>::between_to_places(const T& lower_value, const T& higher_value) const
     {
-        Node** location;
-        Node** father;
-        T* lower = find_in_tree(root,lower_value, location, father);
+        if(size == 0)
+            return 0;
+        Node* location;
+        Node* father;
+        T* lower = find_in_tree(root,lower_value, &location, &father);
         if(!lower)
             lower = ClosestFromAbove(lower_value);
-        T* higher = find_in_tree(root, higher_value, location, father);
+        T* higher = find_in_tree(root, higher_value, &location, &father);
         if(!higher)
             higher = ClosestFromBelow(higher_value);
         if(!higher || !lower)
@@ -845,52 +854,17 @@ namespace wet2_dast{
         Node* temp = root;
         while(temp != ver)
         {
-            if(ver<= temp)
+            if(*(ver->value) <= *(temp->value))
             {
-                ver = ver->left_son;
+                temp = temp->left_son;
                 continue;
             }
-            ver = ver->right_son;
+            temp = temp->right_son;
             index += getRank(temp->left_son) + 1;
         }
         return (index + getRank(ver->left_son) + 1);
     }
 
-    template<class T>
-    T *AVLRankTree<T>::ClosestFromAbove(const T& value) const
-    {
-        Node* temp = root;
-        Node* candidate = nullptr;
-        while(temp)
-        {
-            if(*(temp->value) <= value)
-            {
-                temp = temp->right_son;
-                continue;
-            }
-            candidate = temp;
-            temp = temp->left_son;
-        }
-        return candidate->value;
-    }
-
-    template<class T>
-    T *AVLRankTree<T>::ClosestFromBelow(const T& value) const
-    {
-        Node* temp = root;
-        Node* candidate = nullptr;
-        while(temp)
-        {
-            if(value <= *(temp->value))
-            {
-                temp = temp->left_son;
-                continue;
-            }
-            candidate = temp;
-            temp = temp->right_son;
-        }
-        return candidate->value;
-    }
 
     template<class T>
     typename AVLRankTree<T>::Node *AVLRankTree<T>::findVer(T *value) const
@@ -911,11 +885,52 @@ namespace wet2_dast{
     }
 
     template<class T>
+    T *AVLRankTree<T>::ClosestFromAbove(const T& value) const
+    {
+        Node* temp = root;
+        Node* candidate = nullptr;
+        while(temp)
+        {
+            if(*(temp->value) <= value)
+            {
+                temp = temp->right_son;
+                continue;
+            }
+            candidate = temp;
+            temp = temp->left_son;
+        }
+        if(!candidate)
+            return nullptr;
+        return candidate->value;
+    }
+
+    template<class T>
+    T *AVLRankTree<T>::ClosestFromBelow(const T& value) const
+    {
+        Node* temp = root;
+        Node* candidate = nullptr;
+        while(temp)
+        {
+            if(value <= *(temp->value))
+            {
+                temp = temp->left_son;
+                continue;
+            }
+            candidate = temp;
+            temp = temp->right_son;
+        }
+        if(!candidate)
+            return nullptr;
+        return candidate->value;
+    }
+
+
+    template<class T>
     double AVLRankTree<T>::getAverage(int num_of_objects) const
     {
         double current_average = 0;
         Node* temp = root;
-        while(temp || num_of_objects == 0)
+        while(temp && num_of_objects != 0)
         {
             if (temp->rank == num_of_objects) // asserting that the rank of the node is always bigger or equal.
                 return temp->average;
