@@ -27,6 +27,8 @@ namespace wet2_dast {
         public:
             void setObject(T *object);
 
+            void print_array();
+
             bool CanInsert() const; //returns true if yes
             int getKey() const;
 
@@ -69,7 +71,7 @@ namespace wet2_dast {
     public:
         explicit HashTable(int size = MINIMUM_ARRAY_SIZE);
 
-        void print_array();
+
 
         void insert_object(T *object, int key);
 
@@ -314,28 +316,28 @@ namespace wet2_dast {
     }
 
     template<class T>
-    bool HashTable<T>::check_if_prime(int number) {
-        int counter = 0;
-        for (int i = 1; i <= (number); i++) {
-            if (number % i == 0) {
-                counter++;
-            }
-            if (counter >= 3) //greedy algorithm
-            {
+    bool HashTable<T>::check_if_prime(int n) {
+        if (n == 1) {
+            return false;
+        }
+        int i = 2;
+        while (i * i <= n) {
+            if (n % i == 0) {
                 return false;
             }
+            i += 1;
         }
-        return (counter == 2);
+        return true;
     }
+
     template<class T>
-    T *HashTable<T>::find_object( int key) {
+    T *HashTable<T>::find_object(int key) {
 //        assert(key>=0 );//finding nullptr object from outside isn't allowed.nor using negative key.
-        int hashed_key=this->find_object_aux(false,key);
-        T* to_return;
-        if(hashed_key==NOT_FOUND) {
+        int hashed_key = this->find_object_aux(false, key);
+        T *to_return;
+        if (hashed_key == NOT_FOUND) {
             throw exceptions();
-        }
-        else
+        } else
         {
 //             assert(hashed_key>=0);//if this assert fails,it means we've found negative index.
              to_return=hash_table_array[hashed_key].getObject();
