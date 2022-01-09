@@ -314,13 +314,37 @@ begin{adjustwidth*}{-3cm}{-3cm}
 \color inherit
 0
 \numeric off
- ממויין לפי השלב ואז המספר המזהה, טבלת ערבול של כל השחקנים 
-\series bold
-ומערך היסטוגרמות של התוצאה של שחקנים שרמתם 
+ ממויין לפי השלב ואז המספר המזהה, טבלת ערבול של כל השחקנים ומערך היסטוגרמות
+ של התוצאה של שחקנים שרמתם 
 \numeric on
 0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
 \numeric off
-.
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שגודלו קבוע ואינו משתנה במהלך התוכנית.
 \end_layout
 
 \begin_layout Standard
@@ -834,8 +858,14 @@ addPlayer
 \begin_inset Formula $combineTrees$
 \end_inset
 
- שמוגדרת על העץ )תוך שהיא מעדכנת את דרגות העץ באופן רלוונטי(, ותאחד את טבלאות
- השחקנים לכדי טבלה אחת, פעולה שממומשת על ידי המבנה 
+ שמוגדרת על העץ )תוך שהיא מעדכנת את דרגות העץ באופן רלוונטי(, תעדכן את מערך
+ ההיסטוגרמות של הקבוצה הרלוונטית להכיל את התוכן של המערך מהקבוצה השנייה
+ )מבוצע ב-
+\begin_inset Formula $\o 1$
+\end_inset
+
+ כי גודל המערך קבוע( ותאחד את טבלאות השחקנים לכדי טבלה אחת, פעולה שממומשת
+ על ידי המבנה 
 \begin_inset Formula $Hash-Table$
 \end_inset
 
@@ -901,7 +931,8 @@ addPlayer
 \begin_inset Formula $O(1)$
 \end_inset
 
- בממוצע על הקלט, תמצא את קבוצות השחקן בסיבוכיות של 
+ בממוצע על הקלט ותעדכן את התא במקום המתאים לתוצאה שלו במערך ההיסטוגרמות,
+ תמצא את קבוצות השחקן בסיבוכיות של 
 \begin_inset Formula $O(log^{*}k)$
 \end_inset
 
@@ -1018,7 +1049,36 @@ addPlayer
 \begin_inset Formula $O(log(n))$
 \end_inset
 
- כאשר יש n איברים בעץ(.
+ כאשר יש n איברים בעץ( ותעדכן את התא המתאים לתוצאה שלו במידה ורמתו כן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+.
  לבסוף הפעולה תסיר אותו מקבוצת כל השחקנים באותו האופן.
  במידה והקלט לא יהיה תקין, השחקן לא קיים או תהיה שגיאת זיכרון תוחזר שגיאה
  מתאימה.
@@ -1094,7 +1154,36 @@ addPlayer
 \color inherit
 0
 \numeric off
-, תעדכן את רמתו ותכניס אותו לעצי השחקנים שרמתם אינה
+, תעדכן את רמתו, תקטין ב-
+\numeric on
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+את התא המתאים לתוצאה שלו בהיסטוגרמה ותכניס אותו לעצי השחקנים שרמתם אינה
 \family roman
 \series medium
 \shape up
@@ -1228,7 +1317,95 @@ addPlayer
 0
 \numeric off
 , תמצא אותו בעץ הרלוונטי, תסיר אותו, תעדכן את התוצאה שלו ואז תכניס אותו
- מחדש )בכך לא תיפגע בתקינות סדר האיברים בעץ(.
+ מחדש )בכך לא תיפגע בתקינות סדר האיברים בעץ( ובמידה ורמתו כן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, תעדכן במערך ההיסטוגרמות את התאים המתאים לתוצאתו הישנה )תחזיר מהכמות השמורה
+ שם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+( ולתוצאתו החדשה )תוסיף
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+(.
  לאחר מכן היא תמצא את קבוצתו דרך השדה השמור אצל השחקן ותבצע את פעולה זו
  שוב באותו האופן רק בקבוצת השחקן ולא בקבוצת כל השחקנים.
  במידה והקלט לא יהיה תקין, השחקן אינו קיים במערכת או תהיה שגיאת זיכרון תוחזר
@@ -1271,6 +1448,144 @@ addPlayer
  ורמתו הכי קרובה מלמטה לחסם העליון( כאשר את כמות השחקנים היא תחשב לפי דרגות
  הצמתים, תעשה אותה הפעולה בעץ הממויין רק לפי הרמה והמספר המזהה בו תקבל את
  כמות השחקנים הכוללת של השחקנים בין רמות אלה ותחזיר את היחס בין שתי הקבוצות.
+ הפעולה תתייחס בנפרד למקרה ובו החסם התחתון הינו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, ובמקרה זה תסכום גם את השחקנים שנמצאים ברמה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+כחלק מהסכום הכולל ולכמות השחקנים בתוצאה הזאת תוסיף את כמות השחקנים ברמה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בעזרת ההיסטוגרמה.
  במידה והקלט לא יהיה תקין, אין שחקנים בקבוצה בין רמות אלו או תהיה שגיאת
  זיכרון תוחזר שגיאה מתאימה.
  הפעולה תפעל על הקבוצה המבוקשת או קבוצת כל השחקנים - קבוצה מספר
@@ -1419,10 +1734,64 @@ addPlayer
 \end_inset
 
 י הכפלת הדרגה הממוצעת השמורה בו כפול גודל תת העץ שהשורש שלו הוא הבן הימני(
- ונספור כמה שחקנים עברנו - כאלה שהיו בתת העץ הימני, אחר כך נלך לתת העץ השמאלי
- שלו ונתחיל את החיפוש מההתחלה כאשר השורש הוא הצומת בה אנו נמצאים כרגע )הבן
- השמאלי של האבא( וכומת השחקנים היא הכמות שחיפשנו בהתחלה פחות כמה שהיו בתת
- העץ הימני.
+ ונספור כמה שחקנים עברנו - כאלה שהיו בתת העץ הימני כולל שורש תת העץ, אחר
+ כך נלך לתת העץ השמאלי שלו ונתחיל את החיפוש מההתחלה כאשר השורש הוא הצומת
+ בה אנו נמצאים כרגע )הבן השמאלי של האבא( וכומת השחקנים היא הכמות שחיפשנו
+ בהתחלה פחות כמה שהיו בתת העץ הימני פחות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עבור השורש עצמו של תת עץ זה.
  
 \series bold
 לדוגמה
@@ -1446,26 +1815,127 @@ addPlayer
 \numeric on
 11
 \numeric off
-, ובבן הימני שלו יש 
+, ובבן הימני שלו יש
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
 \numeric on
-6
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
 \numeric off
 .
  אז נלך לבן הימני, נקח את הממוצע שיש בו, נכפיל ב-
 \numeric on
-6
+5
 \numeric off
-, נחזור לאבא, נלך ממנו שמאלה ואז ימינה עד הסוף ונחפש צומת עם 
+, נחזור לאבא, ניקח את הרמה השמורה בו ונלך ממנו שמאלה ואז ימינה עד הסוף ונחפש
+ צומת עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
 \numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 3
 \numeric off
 .
- אם אין, וקיימת נגיד צומת עם 
+ אם אין, וקיימת נגיד צומת עם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
 \numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 5
 \numeric off
- ומימינה יש רק 
+ ומימינה יש רק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
 \numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
 2
 \numeric off
 , נחזור על התהליך.
@@ -1563,7 +2033,7 @@ addPlayer
 \begin_inset Formula $\boldsymbol{StatusType}$
 \end_inset
 
-: 
+: לא מומש.
 \end_layout
 
 \begin_layout Enumerate
@@ -1578,13 +2048,22 @@ addPlayer
 \series bold
 :
 \series default
- הפעולה תקרא להורס הדיפולטיבי של 
+ הפעולה תקרא להורס של 
 \begin_inset Formula $PlayerManager$
 \end_inset
 
- שבתורו יקרא להורסים הדיפולטיביים של כל שאר המבנים במימוש, כאשר כל אחד מהם
- מוחק את הזיכרון שמוחזק בו.
- בגלל שסיבוכיות הזיכרון במבנה היא 
+ שבתורו יקרא להורסים של כל שאר המבנים במימוש, כאשר כל אחד מהם מוחק את הזיכרון
+ שמוחזק בו.
+ כל הורס מוחק את הזיכרון שמוכל בו בלבד בסיבוכיות זמן של כמות הזכרון שמכול
+ בו )העץ עושה זאת דרך סיור 
+\begin_inset Formula $postorder$
+\end_inset
+
+, טבלת הערבול ומבנה ה-
+\begin_inset Formula $Union-Find$
+\end_inset
+
+ דרך מעבר על מערך האיברים( ובגלל שסיבוכיות הזיכרון במבנה היא 
 \begin_inset Formula $\o{n+k}$
 \end_inset
 
@@ -1738,7 +2217,7 @@ addPlayer
 \begin_inset Formula $removePlayer,\,increasePlayerLevel,\,changePlayerIDScore$
 \end_inset
 
- כי הן אלה הפועלות על העץ ו-
+ כי הן אלה הפועלות המשתמשות בפעולות העץ ו-
 \begin_inset Formula $addPlayer$
 \end_inset
 
@@ -1801,7 +2280,65 @@ addPlayer
 \color inherit
 0
 \numeric off
- וטבלת ערבול ובה כל השחקנים.
+ ו, מערך של מספרים שלמים בגדול קבוע וחסום ע
+\begin_inset Quotes erd
+\end_inset
+
+י
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+201
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ןטבלת ערבול ובה כל השחקנים.
  לכן, סיבכויות המקום של כמות השחקנים בכל קבוצה חסומה מלמעלה ע
 \begin_inset Quotes erd
 \end_inset
