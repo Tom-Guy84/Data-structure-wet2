@@ -8,7 +8,7 @@
 
 
 #define HASH_STEP_CONSTANT 2
-#define NOT_FOUND -1
+#define NOT_FOUND (-1)
 #define MINIMUM_ARRAY_SIZE 3
 #define MINIMUM_PRIME_ENCODER 3
 namespace wet2_dast {
@@ -26,8 +26,6 @@ namespace wet2_dast {
 
         public:
             void setObject(T *object);
-
-            void print_array();
 
             bool CanInsert() const; //returns true if yes
             int getKey() const;
@@ -94,10 +92,7 @@ namespace wet2_dast {
         T *find_object(int key);//returns nullptr 1 if it didn't find anything,else returns the object itself.
         ~HashTable();
 
-        class exceptions : public std::exception {
-        public:
-            ~exceptions() = default;
-        };
+        class exceptions : public std::exception {};
     };
 
 
@@ -178,8 +173,8 @@ namespace wet2_dast {
     }
 
     template<class T>
-    void HashTable<T>::array_object::setObject(T *object) {
-        this->object = object;
+    void HashTable<T>::array_object::setObject(T *new_object) {
+        this->object = new_object;
     }
 
     template<class T>
@@ -307,8 +302,8 @@ namespace wet2_dast {
     }
 
     template<class T>
-    int HashTable<T>::closest_prime_to_size(int size) {
-        int prime = size;
+    int HashTable<T>::closest_prime_to_size(int wanted_size) {
+        int prime = wanted_size;
         while (!check_if_prime(prime)) {
             prime++;
         }

@@ -224,7 +224,7 @@ namespace wet2_dast{
 
         AVLRankTree &operator=(const AVLRankTree<T> &other) = delete;
 
-        T* find(const T &val);
+//        T* find(const T &val);
 
         void insert(T &val);
 
@@ -232,17 +232,9 @@ namespace wet2_dast{
 
         T** inorderOut(int size) ;
 
-        void inorderInsert(T** values, int size);
+        void inorderInsert(T** values);
 
         class exceptions : public std::exception
-        {
-        };
-
-        class ItemExist : public exceptions
-        {
-        };
-
-        class ItemNotExist : public exceptions
         {
         };
 
@@ -255,11 +247,11 @@ namespace wet2_dast{
             }
         };
 
-        T* findClosestFromBelow(const T &value); // return thr closest from below to the value in the tree
-
-        T* findClosestFromAbove(const T &value); // return thr closest from above to the value in the tree
-
-        T* GetLowesValue();
+//        T* findClosestFromBelow(const T &value); // return thr closest from below to the value in the tree
+//
+//        T* findClosestFromAbove(const T &value); // return thr closest from above to the value in the tree
+//
+//        T* GetLowesValue();
 
         int between_to_places(const T& lower, const T& higher) const;
 
@@ -628,19 +620,19 @@ namespace wet2_dast{
         calcRank(temp);
         temp->calcAverage();
     }
-
-    template<class T>
-    T* AVLRankTree<T>::find(const T &val)
-    {
-        if(root==nullptr) //if root is nullptr whats the point in checking the whole tree.
-        {
-            return nullptr;
-        }
-        Node *loc;
-        Node *father_of_loc;
-        T* to_return= find_in_tree(root, val, &loc, &father_of_loc);
-        return to_return;
-    }
+//
+//    template<class T>
+//    T* AVLRankTree<T>::find(const T &val)
+//    {
+//        if(root==nullptr) //if root is nullptr whats the point in checking the whole tree.
+//        {
+//            return nullptr;
+//        }
+//        Node *loc;
+//        Node *father_of_loc;
+//        T* to_return= find_in_tree(root, val, &loc, &father_of_loc);
+//        return to_return;
+//    }
 
     template<class T>
     void AVLRankTree<T>::insert(T &val)
@@ -704,14 +696,14 @@ namespace wet2_dast{
     }
 
     template<class T>
-    T** AVLRankTree<T>::inorderOut(int size)
+    T** AVLRankTree<T>::inorderOut(int new_size)
     {
         T** values;
         if (!root)
             return nullptr;
-        values=new T*[size];
+        values=new T*[new_size];
         int index=0;
-        inorderHelper(values, &index, root, size);
+        inorderHelper(values, &index, root, new_size);
         return values;
     }
 
@@ -741,31 +733,31 @@ namespace wet2_dast{
         if(ver->value)
             ver->calcAverage();
     }
-
-    template<class T>
-    T* AVLRankTree<T>::findClosestFromBelow(const T &value)
-    {
-        if(!root)
-            return nullptr;
-        Node *loc;
-        Node *father_of_loc;
-        find_in_tree(root, value, &loc, &father_of_loc);
-        if (loc->left_son)
-        {
-            Node* temp = loc->left_son;
-            while(temp->right_son)
-            {
-                temp = temp->right_son;
-            }
-            return temp->value;
-        }
-        if (father_of_loc)
-        {
-            if(*(father_of_loc->value) <= *(loc->value))
-                return father_of_loc->value;
-        }
-        return nullptr;
-    }
+//
+//    template<class T>
+//    T* AVLRankTree<T>::findClosestFromBelow(const T &value)
+//    {
+//        if(!root)
+//            return nullptr;
+//        Node *loc;
+//        Node *father_of_loc;
+//        find_in_tree(root, value, &loc, &father_of_loc);
+//        if (loc->left_son)
+//        {
+//            Node* temp = loc->left_son;
+//            while(temp->right_son)
+//            {
+//                temp = temp->right_son;
+//            }
+//            return temp->value;
+//        }
+//        if (father_of_loc)
+//        {
+//            if(*(father_of_loc->value) <= *(loc->value))
+//                return father_of_loc->value;
+//        }
+//        return nullptr;
+//    }
 
     template<class T>
     int AVLRankTree<T>::getSize() const{
@@ -790,49 +782,49 @@ namespace wet2_dast{
 
 
     template<class T>
-    void AVLRankTree<T>::inorderInsert(T** values, int size)
+    void AVLRankTree<T>::inorderInsert(T** values)
     {
         int index = 0;
         inorderIn(values, index, root);
     }
-
-    template<class T>
-    T *AVLRankTree<T>::findClosestFromAbove(const T &value)
-    {
-        if(!root)
-            return nullptr;
-        Node *loc;
-        Node *father_of_loc;
-        find_in_tree(root, value, &loc, &father_of_loc);
-        if (loc->right_son)
-        {
-            return loc->right_son->value;
-        }
-        while (father_of_loc)
-        {
-            if(father_of_loc->value >= loc->value)
-                return father_of_loc->value;
-            loc = loc->father;
-            father_of_loc = father_of_loc->father;
-        }
-        return nullptr;
-    }
-
-    template<class T>
-    T *AVLRankTree<T>::GetLowesValue()
-    {
-        if (!root)
-            return nullptr;
-        Node *temp = root->left_son;
-        if (!temp)
-            return root->value;
-        while (temp->left_son)
-        {
-            temp = temp->left_son;
-        }
-        return temp->value;
-    }
-
+//
+//    template<class T>
+//    T *AVLRankTree<T>::findClosestFromAbove(const T &value)
+//    {
+//        if(!root)
+//            return nullptr;
+//        Node *loc;
+//        Node *father_of_loc;
+//        find_in_tree(root, value, &loc, &father_of_loc);
+//        if (loc->right_son)
+//        {
+//            return loc->right_son->value;
+//        }
+//        while (father_of_loc)
+//        {
+//            if(father_of_loc->value >= loc->value)
+//                return father_of_loc->value;
+//            loc = loc->father;
+//            father_of_loc = father_of_loc->father;
+//        }
+//        return nullptr;
+//    }
+//
+//    template<class T>
+//    T *AVLRankTree<T>::GetLowesValue()
+//    {
+//        if (!root)
+//            return nullptr;
+//        Node *temp = root->left_son;
+//        if (!temp)
+//            return root->value;
+//        while (temp->left_son)
+//        {
+//            temp = temp->left_son;
+//        }
+//        return temp->value;
+//    }
+//
     template<class T>
     int AVLRankTree<T>::getRank(AVLRankTree::Node *ver)
     {

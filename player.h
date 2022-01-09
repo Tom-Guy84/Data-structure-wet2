@@ -22,7 +22,7 @@ namespace wet2_dast {
         Player()=default;
         Player(const Player &p) = default;
         Player& operator=(const Player& p);
-        int getGroup();
+        int getGroup() const;
         void setLevel(int level_to_set);// p->level_to_set=level_to_set.
         int getLevel() const;
         int getId() const;
@@ -32,14 +32,6 @@ namespace wet2_dast {
         bool operator==(const Player &p1) const;
         bool operator<=(const Player& other) const;
         Player* createPlayerByLevel() const;
-        class InvalidIdentifiers: public std::exception
-        {
-        public:
-            const char* what() const noexcept override
-            {
-                return "Invalid input as level or id";
-            }
-        };
     };
 
 

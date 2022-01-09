@@ -189,7 +189,7 @@ namespace wet2_dast{
     }
 
     StatusType
-    PlayerManager::getPlayersBound(int GroupID, int score, int m, int *LowerBoundPlayers, int *HigherBoundPlayers)
+    PlayerManager::getPlayersBound(int , int , int , int *, int *)
     {
         return FAILURE;
     }

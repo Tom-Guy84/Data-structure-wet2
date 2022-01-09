@@ -33,7 +33,7 @@ namespace wet2_dast {
         void removePlayer(int player_id);
         void increaseLevelToPlayer(int player_id, int levelIncrease);
         void increaseScoreToPlayer(int player_id, int scoreIncrease);
-        Player ** getPlayersByLevel();
+//        Player ** getPlayersByLevel();
         double getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel) const;
         double averageHighestPlayerLevel(int wanted_number_of_players) const;
     class exceptions : public std::exception{};

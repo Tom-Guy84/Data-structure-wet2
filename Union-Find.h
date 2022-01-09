@@ -20,7 +20,7 @@ class Union_Find
         ~Node();
     };
     Node** objects;
-    int size;
+    int size = 0;
     Node* find_aux(int item);
 
 public:

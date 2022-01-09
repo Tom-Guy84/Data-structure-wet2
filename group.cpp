@@ -25,8 +25,8 @@ namespace wet2_dast {
         {
             players_id[i]->setGroup(to_insert->Group_Id);
         }
-        to_insert->players_by_score.inorderInsert(players_id ,to_insert->size+to_delete->size);
-        to_insert->players_by_level.inorderInsert(players_level,to_insert->size+to_delete->size);
+        to_insert->players_by_score.inorderInsert(players_id);
+        to_insert->players_by_level.inorderInsert(players_level);
         delete[] players_level;
         delete[] players_id;
         to_delete->size = 0;
@@ -113,11 +113,11 @@ namespace wet2_dast {
         auto* player_by_score = new Player(*player);
         players_by_score.insert(*player_by_score);
     }
-
-    Player** Group::getPlayersByLevel()
-    {
-        return players_by_level.inorderOut(players_by_level.getSize());
-    }
+//
+//    Player** Group::getPlayersByLevel()
+//    {
+//        return players_by_level.inorderOut(players_by_level.getSize());
+//    }
 
     void Group::increaseScoreToPlayer(int player_id, int scoreIncrease)
     {

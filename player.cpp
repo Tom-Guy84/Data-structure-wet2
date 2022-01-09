@@ -48,7 +48,7 @@ namespace wet2_dast
                     || (score == other.score && level == other.level && player_id < other.player_id));
     }
 
-    int Player::getGroup() {
+    int Player::getGroup() const {
         return group;
     }
 
