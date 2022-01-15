@@ -140,6 +140,8 @@ namespace wet2_dast {
 
     double Group::getPercentOfPlayersWithScoreInBounds(int score, int lowerLevel, int higherLevel) const
     {
+        if(score <= 0 || score > 200)
+            score = 1;
         if(lowerLevel == 0)
         {
             int amount_level_zero = size - players_by_level.getSize();

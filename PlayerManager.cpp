@@ -148,12 +148,13 @@ namespace wet2_dast{
             Group* group = groups->find(GroupID);
             if(lowerLevel > higherLevel)
                 return FAILURE;
+
+            *players = group->getPercentOfPlayersWithScoreInBounds(score, lowerLevel, higherLevel);
             if(score <= 0 || score > scale)
             {
                 *players = 0;
                 return SUCCESS;
             }
-            *players = group->getPercentOfPlayersWithScoreInBounds(score, lowerLevel, higherLevel);
             return SUCCESS;
         }
         catch (AVLRankTree<Player>::exceptions& e)

@@ -1,2 +1,2 @@
-Tom Guy, tom.guy@campus.technion.ac.il , 315155671
-Ziv Damir, zivdamir@campus.technion.ac.il , 206606709
+Tom Guy 315155671 tom.guy@campus.technion.ac.il 
+Ziv Damir 206606709 zivdamir@campus.technion.ac.il  
