@@ -1,5 +1,5 @@
 The following lines were change for resubmission:
-In file HashTable.h the following lines were add:
+In file HashTable.h the following lines were added:
   line 29 - declaring setKey(int)
   line 180-183 implementation of setKey(int)
   line 270 - hash_table_array[hashed_key].setKey(0)
@@ -7,8 +7,8 @@ In file PlayerManager.cpp:
   line 149 - add condition in the if - higherLevel<0
 In file group.cpp:
   line 145 - the condition changed from "if(lowerLevel == 0)" to "if(lowerLevel <= 0)
-  line 147 was add - "lowerLevel = 0;"
+  line 147 was added - "lowerLevel = 0;"
   
   
 There are some deviations from time to time in the floating point returns values. As far as we checked in the staff tests, the deviations are in range of 10^-7.
-We have no explanation for them and we believe they are not from logic errors but from arithmetic problems.
+We have no explanation for them, and we believe they are not from logic errors but from arithmetic problems.
