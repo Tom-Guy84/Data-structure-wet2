@@ -146,7 +146,7 @@ namespace wet2_dast{
         try
         {
             Group* group = groups->find(GroupID);
-            if(lowerLevel > higherLevel)
+            if(lowerLevel > higherLevel || higherLevel < 0)
                 return FAILURE;
 
             *players = group->getPercentOfPlayersWithScoreInBounds(score, lowerLevel, higherLevel);

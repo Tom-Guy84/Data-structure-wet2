@@ -142,8 +142,9 @@ namespace wet2_dast {
     {
         if(score <= 0 || score > 200)
             score = 1;
-        if(lowerLevel == 0)
+        if(lowerLevel <= 0)
         {
+            lowerLevel = 0;
             int amount_level_zero = size - players_by_level.getSize();
             if(higherLevel == 0)
             {
