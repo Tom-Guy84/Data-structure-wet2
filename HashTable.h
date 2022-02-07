@@ -26,7 +26,7 @@ namespace wet2_dast {
 
         public:
             void setObject(T *object);
-
+            void setKey(int key);
             bool CanInsert() const; //returns true if yes
             int getKey() const;
 
@@ -178,6 +178,11 @@ namespace wet2_dast {
     }
 
     template<class T>
+    void HashTable<T>::array_object::setKey(int key) {
+    this->key=key;
+    }
+
+    template<class T>
 //**changes the size,and copies all objects that were in the old hash table.
 //also adjusts prime_hash_enoder
     void HashTable<T>::resize(int new_size) {
@@ -262,6 +267,7 @@ namespace wet2_dast {
         hash_table_array[hashed_key].change_insertion_status(true);
         T *temp = hash_table_array[hashed_key].getObject();
         hash_table_array[hashed_key].setObject(nullptr);
+        hash_table_array[hashed_key].setKey(0);
         delete temp;
         current_objects_count--;
         if (current_objects_count <= size / 4) {
